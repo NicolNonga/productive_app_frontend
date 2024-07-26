@@ -1,0 +1,66 @@
+<main class="main" id="loginmain">
+    <div class="left-area" style= "    background-color: #eceff5; width: 100%;">
+      <div class="form-area" style="width: 40%; height: auto;">
+        <div class="form-header">
+          <img src="assets/dist/img/cobra-aui.jpeg" class="logo-image" alt="Logo" />
+          <small class="mt-5 text-muted">Preencha os campos abaixo</small>
+        </div>
+        <form   >
+        
+          <div class="form-body" [formGroup]=" this.loginForm">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-envelope"></i></span>
+              </div>
+              <input type="text"    [ngClass]="{'is-invalid':this.control['username'].errors && isSubmitted, 'is-valid': !this.control['username'].errors && isSubmitted}" 
+               formControlName="username" class="form-control" placeholder="cobraqui_@02">
+            </div>
+            <div *ngIf="this.control['username'].invalid && isSubmitted">
+  
+              <div >
+                <span class="text-danger">* nome do utilizador é obrigatorio</span>
+              </div>
+  
+          </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-lock"></i></span>
+              </div>
+              <input [type]="this.inputPasswordType"   [ngClass]="{'is-invalid':this.control['password'].errors && isSubmitted, 'is-valid': !this.control['password'].errors && isSubmitted}" 
+              formControlName="password"  class="form-control input-password"
+                placeholder="*************">
+              <div class="input-group-append">
+                <span  (click)="visualizePassword()" class="input-group-text"><i id="password-icon" class="fa fa-eye"></i></span>
+              </div>
+            </div>
+            
+  
+              <div  *ngIf="this.control['password'].invalid && isSubmitted">
+                <span class="text-danger">*  password  é obrigatorio</span>
+              </div>
+  
+          
+            
+          </div>
+          <div class="opt-area text-muted">
+            <div class="remember">
+              <input type="checkbox" class="remember-checkbox" id="rememberonSubmit">
+              <label class="ml-2" for="remember">Lembrar-me</label>
+            </div>
+            <div class="forgot-password">
+              <a href="javascript:void(0)">Esqueceu sua
+                senha?</a>
+            </div>
+          </div>
+          <div class="mt-5">
+            <button  (click)="this.onSubmit()" class="btn btn-login btn-flat btn-lg btn-block">Login
+              <i class="fa fa-sign-in"></i></button>
+          </div>
+        </form>
+  
+      </div>
+    </div>
+  
+  </main>

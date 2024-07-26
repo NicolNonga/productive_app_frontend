@@ -1,0 +1,149 @@
+html,
+body {
+  background: #fff;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+.main {
+  flex: 1;
+  margin: 0;
+  gap: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.left-area {
+  width: 50%;
+  height: 100%;
+  background: #eee;
+}
+.right-area,
+.left-area {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+.left-area {
+  justify-content: center;
+}
+.right-area {
+    width: auto;
+ 
+  justify-content: flex-start;
+  background-size: contain;
+}
+.logo-area,
+.form-area {
+  width: 60%;
+  border: none;
+  height: 50rem;
+  margin-top: 5%;
+  background: #fff;
+}
+.logo-area {
+  display: grid;
+  background: #eee;
+  place-items: center;
+}
+.form-area {
+  padding: 120px;
+}
+.form-header {
+  font-size: 20px;
+  color: #749f89;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form-header h2 {
+  font-size: 45px;
+  font-weight: bolder;
+}
+.input-group-append,
+.input-group-prepend {
+  border-radius: 0 !important;
+  background: transparent;
+  cursor: pointer;
+}
+.input-group input {
+  height: 57px;
+  border-radius: 0;
+  border: 1px solid #bbb;
+  border-left: none;
+  outline: none !important;
+  cursor: pointer;
+}
+.input-group-text {
+  border-radius: 0;
+  border: 1px solid #bbb;
+  background: transparent;
+  padding: 1.2rem 1.2rem !important;
+}
+.input-group-text i {
+  color: #555;
+}
+.input-password {
+  border-right: none !important;
+}
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 20px;
+}
+.opt-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin-top: 30px;
+}
+.remember,
+.forgot-password,
+.forgot-password a {
+  cursor: pointer;
+  color: #00020190;
+}
+.remember-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  accent-color: #08934b;
+  vertical-align: middle;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0;
+}
+.remember-checkbox:checked {
+  background-color: #08934b;
+}
+label {
+  cursor: pointer;
+  font-weight: normal !important;
+}
+.btn-login {
+  color: #fff !important;
+  background: #ffc810f5 !important;
+  transition: background 500ms ease;
+}
+.btn-login:hover {
+  background: #ffc810f5 !important;
+}
+.remember:hover .remember-checkbox {
+  accent-color: #08934b;
+}
+.logo-image {
+    width: 180px;
+    height: auto;
+    margin-left: 40%;
+}
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #ccc;
+}
+.is-invalid{
+  border: 1px solid red !important;
+
+}

@@ -1,0 +1,207 @@
+<aside
+  class="main-sidebar elevation-4 sidebar-dark-warning"
+  style="min-height: 768px"
+>
+  <!-- Brand Logo -->
+  <a routerLink="/dashboard" class="brand-link bg-white">
+    <img
+    src="assets/dist/img/cobra-aui.jpeg" 
+      alt="INVESTPRIME-UNIG"
+      class="brand-image img-circles elevation-3s"
+      style="margin: -13px 0 0 -8px; max-height: 54px; width: 103px"
+    />
+  
+    <span
+      class="brand-textt font-weight-lightt"
+      style="margin-left: 12px; font-weight: 600"
+      >Cobraqui</span
+    >
+  </a>
+
+  <div class="sidebar">
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img
+          src="assets/dist/img/avatar.png"
+          class="img-circle elevation-0"
+          alt="User Image"
+        />
+      </div>
+      <div class="info">
+        <a
+          href="javascript:void(0)"
+       
+          ><span>{{this.currentuser.user.name}}</span></a
+        >
+      </div>
+    </div>
+
+    <nav class="mt-2">
+      <ul
+        class="nav nav-pills nav-sidebar nav-child-indent flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <li class="nav-item">
+          <a routerLink="/utilizadores" routerLinkActive="active" class="nav-link"
+            ><i class="nav-icon fa fa-home"></i>
+            <p>Utilizadores</p>
+          </a>
+        </li>
+
+        <li
+        
+          class="nav-item has-treeview"
+          routerLinkActive="menu-open"
+        >
+          <a class="nav-link"
+            ><i class="nav-icon fa fa-sitemap"></i>
+            <p>Configuraçoes<i class="right fa fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" routerLinkActive="menu-open">
+              <a class="nav-link"
+                ><i class="fa fa-key nav-icon"></i>
+                <p> Control de Acesso<i class="right fa fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview nav-fourview">
+                <li
+                
+                  class="nav-item"
+                >
+                  <a
+                    routerLink="/control-acesso/utilizadores"
+                    routerLinkActive="active"
+                    class="nav-link"
+                    ><i class="fa fa-users nav-icon"></i>Utilizadores</a
+                  >
+                </li>
+                <li
+                
+                  class="nav-item"
+                >
+                  <a
+                    routerLink="/contaCorrente"
+                    routerLinkActive="active"
+                    class="nav-link"
+                    ><i class="fa fa-cc nav-icon"></i> Conta Corrente</a
+                  >
+                </li>
+                <li
+       
+                  class="nav-item"
+                >
+                  <a
+                    routerLink="/segmentacao-cliente"
+                    routerLinkActive="active"
+                    class="nav-link"
+                    ><i class="fa fa-th-list nav-icon"></i> Níveis
+                    Segmentação</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li
+             
+              class="nav-item has-treeview"
+              routerLinkActive="menu-open"
+            >
+              <a href="#" class="nav-link"
+                ><i class="fa fa-money nav-icon"></i>
+                <p>Pró-Forma<i class="right fa fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li
+              
+                  class="nav-item"
+                >
+                  <a
+                    routerLink="/orcamento"
+                    routerLinkActive="active"
+                    class="nav-link"
+                    ><i class="fa fa-plus nav-icon"></i> Registar Pró-Forma</a
+                  >
+                </li>
+                <li
+                
+                  class="nav-item"
+                >
+                  <a
+                    routerLink="/listarOrcamento"
+                    routerLinkActive="active"
+                    class="nav-link"
+                    ><i class="fa fa-file-archive-o nav-icon"></i> Listar
+                    Pró-Forma</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li
+            
+              class="nav-item has-treeview"
+              routerLinkActive="menu-open"
+            >
+              <a href="#" class="nav-link"
+                ><i class="fa fa-gift nav-icon"></i>
+                <p>Encomendas<i class="right fa fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li
+                 
+                  class="nav-item has-treeview"
+                  routerLinkActive="menu-open"
+                >
+                  <a href="#" class="nav-link"
+                    ><i class="fa fa-unlock-alt nav-icon"></i>
+                    <p>Registrar<i class="right fa fa-angle-left"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li
+                   
+                      class="nav-item"
+                    >
+                      <a
+                        routerLink="/crm/encomenda/registar/normal"
+                        routerLinkActive="active"
+                        class="nav-link"
+                        ><i class="fa fa-users nav-icon"></i> Encomenda
+                        Normal</a
+                      >
+                    </li>
+                    <!--li *ngIf="canActivateRouterLink('web-registar-encomendas')" class="nav-item">
+                      <a routerLink="/crm/encomenda/registar/oferta" routerLinkActive="active" class="nav-link"><i
+                          class="fa fa-lock nav-icon"></i>Encomenda de Oferta
+                      </a>
+
+                      <a routerLink="/crm/encomenda/campanha-promocional" routerLinkActive="active" class="nav-link"><i
+                          class="fa fa-gift nav-icon"></i>Encomenda de
+                        Campanha
+                      </a>
+                    </li-->
+                  </ul>
+                </li>
+                <li
+                
+                  class="nav-item"
+                >
+                  <a
+                    routerLink="/crm/encomenda/listar"
+                    routerLinkActive="active"
+                    class="nav-link"
+                    ><i class="fa fa-file-archive-o nav-icon"></i> Listar
+                    Encomendas</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+
+      
+      </ul>
+    </nav>
+  </div>
+</aside>

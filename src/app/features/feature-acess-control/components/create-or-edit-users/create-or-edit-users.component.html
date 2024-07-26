@@ -1,0 +1,167 @@
+<div id="createOrEditUserModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 990px;">
+        <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <i class="fa fa-plus"></i> Registar Utilizador
+            </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="this.userFormGroup">
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <input id="fileInput" style="display: none" type="file" /><label
+                            for="fileInput"
+                            style="cursor: pointer"
+                            ><img
+                              alt="Photo"
+                              class="profile-user-img img-fluid img-circle"
+                              style="border-radius: 4%; margin: 0 20px; width: 188px"
+                              src="assets/dist/img/avatar.png"
+                          /></label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="name"><i class="fa fa-edit"></i> Nome</label
+                          ><input
+                            id="name"
+                            placeholder="John Doe"
+                            type="text"
+                            formControlName="name"
+                            [ngClass]="{'is-invalid':this.control['name'].invalid && isSubmitted, 'is-valid': !this.control['name'].invalid && isSubmitted}"
+                            class="form-control"
+                          />
+                          <div *ngIf="this.control['name'].invalid && isSubmitted">
+  
+                              <div >
+                                <span class="text-danger">* Nome é obrigatorio</span>
+                              </div>
+  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                          <div class="input-group">
+                            <input
+                              id="email"
+                              placeholder="john.doe@cobraqui.com"
+                              type="email"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="email"
+                              [ngClass]="{'is-invalid':this.control['email'].invalid && isSubmitted, 'is-valid': !this.control['email'].invalid && isSubmitted}"
+                            />
+                   
+                          </div>
+                          <div *ngIf="this.control['email'].invalid && isSubmitted">
+  
+                            <div >
+                              <span class="text-danger">* Email  é obrigatorio</span>
+                            </div>
+  
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="phone"><i class="fa fa-phone"></i> Contacto</label>
+                          <div class="input-group">
+                            <input
+                              id="phone"
+                              [ngClass]="{'is-invalid':this.control['telefone'].invalid && isSubmitted, 'is-valid': !this.control['telefone'].invalid && isSubmitted}"
+                      
+                              placeholder="+258 999 999 999"
+                              type="text"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="telefone"
+                            />
+                          </div>
+                          <div *ngIf="this.control['telefone'].invalid && isSubmitted">
+  
+                            <div >
+                              <span class="text-danger">* O telefone  é obrigatorio</span>
+                            </div>
+  
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="address"><i class="fa fa-home"></i> Morada</label>
+                          <div class="input-group">
+                            <input
+                              id="address"
+                              placeholder="Avenida 05, Malhangalene, Maputo."
+                              type="text"
+                              formControlName="address"
+                              [ngClass]="{'is-invalid':this.control['address'].invalid && isSubmitted, 'is-valid': !this.control['address'].invalid && isSubmitted}"
+                             
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                            />
+                          </div>
+                          <div *ngIf="this.control['address'].invalid && isSubmitted">
+  
+                            <div >
+                              <span class="text-danger">*A Morada  é obrigatorio</span>
+                            </div>
+  
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="username"
+                            ><i class="fa fa-user"></i> Nome de Usuário</label
+                          >
+                          <div class="input-group">
+                            <input
+                              id="username"
+                              placeholder="john.doe"
+                              type="text"
+                              formControlName="username"
+                              [ngClass]="{'is-invalid':this.control['username'].invalid && isSubmitted, 'is-valid': !this.control['username'].invalid && isSubmitted}"
+                              ng-reflect-options="[object Object]"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                            />
+                          </div>
+                          <div *ngIf="this.control['username'].invalid && isSubmitted">
+  
+                            <div >
+                              <span class="text-danger">*A Username  é obrigatorio</span>
+                            </div>
+  
+                        </div>
+                        </div>
+                      </div>
+  
+  
+                    </div>
+              </form>
+     
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-danger btn-sm btn-flat text-white"
+              type="button"
+            >
+              <i class="fa fa-close"></i> Fechar</button
+            ><button class="btn btn-secondary btn-sm btn-flat mr-1" (click)="this.validateForm()" type="button">
+              <i class="fa fa-check"></i> Validar</button
+            >
+            <button (click)="this.createUser()" class="btn btn-success btn-sm btn-flat mr-1" type="button">
+              <i class="fa fa-save"></i> Registar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--bindings={
+      "ng-reflect-ng-if": "false"
+    }-->
+  </div>
+  

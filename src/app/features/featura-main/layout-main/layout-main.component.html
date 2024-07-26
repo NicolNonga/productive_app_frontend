@@ -1,0 +1,18 @@
+
+<app-sidebar class="{{ layout.layoutNavigationTop?'content-wrapper-left': ''}}"  *ngIf="layout.customLayout"></app-sidebar>
+<app-header class="{{ layout.layoutNavigationTop?'content-wrapper-left': ''}}"  *ngIf="layout.customLayout"></app-header>
+  <div class="wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-12">
+        
+                    <router-outlet></router-outlet>
+              
+                 </div>
+            </div>
+        </div>
+    
+      </section>
+  </div>
+<app-footer></app-footer>
