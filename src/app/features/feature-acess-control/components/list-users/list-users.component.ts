@@ -26,7 +26,7 @@ export class ListUsersComponent {
   }
 
   public realoadUser() {
-   
+     console.log("test")
     runInInjectionContext(this.environmentInjector, () => {
       this.users = this.userHttpService.toSignalUsers();
     });

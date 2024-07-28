@@ -26,8 +26,8 @@ export const routes: Routes = [
     loadComponent : () => import("./features/feature-authentication/login/login.component").then(mod => mod.LoginComponent)
    },
   {
-    path:"utilizadores",
-    canActivate: [AuthGuard],
+    path:"logs",
+   // canActivate: [AuthGuard],
     data: {
       title:"Pagina Principal",
       layout:{
@@ -35,7 +35,7 @@ export const routes: Routes = [
         layoutNavigationTop: true
       }
   },
-  loadComponent : () => import('./features/feature-acess-control/components/list-users/list-users.component').then(mod=> mod.ListUsersComponent)
+  loadComponent : () => import('./features/feature-logs/componets/logs/logs.component').then(mod=> mod.LogsComponent)
 }
 ]
 

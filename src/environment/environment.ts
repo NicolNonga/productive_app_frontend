@@ -1,5 +1,5 @@
 export const Server = {
-    host: '127.0.0.1',
+    host: 'localhost',
     port: 3333,
     api: 'api',
     protocol: 'http'
