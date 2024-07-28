@@ -1,0 +1,72 @@
+<section class="content my-mb-100">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="javascricpt:void(0)" style="color: #333">
+          <div class="info-box">
+            <span class="info-box-icon bg-info elevation-1"
+              ><i class="fa fa-users"></i
+            ></span>
+            <div class="info-box-content">
+              <span class="info-box-text">TOTAL DE UTILIZADORES</span>
+              <span class="info-box-number">
+                  {{this.totalLogs().total_users}}
+                
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="javascricpt:void(0)" style="color: #333">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1"
+              ><i class="fa fa-tv"></i
+            ></span>
+            <div class="info-box-content">
+              <span class="info-box-text">TOTAL DE APLICAÇÕES</span>
+              <span class="info-box-number">
+                {{this.totalLogs().total_app_nome}}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- fix for small devices only -->
+      <div class="clearfix hidden-md-up"></div>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="javascricpt:void(0)" style="color: #333">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"
+              ><i class="fa fa-sitemap"></i
+            ></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">TOTAL DE MAC ADDRESS</span>
+              <span class="info-box-number">
+                {{this.totalLogs().total_mac_address}}
+            </span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <a href="javascricpt:void(0)" style="color: #333">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"
+              ><i class="fa fa-sitemap text-white"></i
+            ></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">TOTAL DE IP</span>
+              <span class="info-box-number">
+                {{this.totalLogs().total_ip}}
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </section>

@@ -15,8 +15,8 @@ export class SidebarComponent  implements OnInit{
   private authService = this.injectorService.get(setLocalStoreService)
   constructor(private injectorService : Injector){}
   ngOnInit(): void {
-    this.currentuser = this.authService.currentUser
+    /* this.currentuser = this.authService.currentUser
     console.log(this.currentuser.user.username)
+  } */
   }
-  
 }

@@ -12,8 +12,8 @@ export class HttpHandleService implements HttpBaseInterface {
     private baseUrl = environment.app_url
     constructor(private httpClient : HttpClient){}
  
-    getById(url: string, paramsId: string | number): Observable<any> {
-         return this.httpClient.get<any>(`${this.baseUrl}/${url}/${paramsId}`).pipe()
+    getById<T>(url: string, paramsId: string | number): Observable<T> {
+         return this.httpClient.get<T>(`${this.baseUrl}/${url}/${paramsId}`).pipe()
     }
     GetAll<T>(url: string, params?: ParamsType | undefined): Observable<T> {
          return this.httpClient.get<T>(`${this.baseUrl}/${url}`, {params : this.createParams(params)}).pipe()
