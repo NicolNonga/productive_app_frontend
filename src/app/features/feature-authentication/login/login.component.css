@@ -125,19 +125,21 @@ label {
 }
 .btn-login {
   color: #fff !important;
-  background: #ffc810f5 !important;
+  background:  #4c81f0 !important;
   transition: background 500ms ease;
 }
 .btn-login:hover {
-  background: #ffc810f5 !important;
+  background: #1074fff5 !important;
 }
 .remember:hover .remember-checkbox {
   accent-color: #08934b;
 }
 .logo-image {
-    width: 180px;
+    width: 40%;
     height: auto;
-    margin-left: 40%;
+    margin-top: 20%;
+    margin-left: 30%;
+    margin-bottom: 5%;
 }
 input[type="text"]::placeholder,
 input[type="password"]::placeholder {

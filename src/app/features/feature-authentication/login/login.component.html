@@ -2,7 +2,7 @@
     <div class="left-area" style= "    background-color: #eceff5; width: 100%;">
       <div class="form-area" style="width: 40%; height: auto;">
         <div class="form-header">
-          <img src="assets/dist/img/cobra-aui.jpeg" class="logo-image" alt="Logo" />
+          <img src="assets/dist/img/logo.png" class="logo-image" alt="Logo" />
           <small class="mt-5 text-muted">Preencha os campos abaixo</small>
         </div>
         <form   >
@@ -13,10 +13,10 @@
                 <span class="input-group-text">
                   <i class="fa fa-envelope"></i></span>
               </div>
-              <input type="text"    [ngClass]="{'is-invalid':this.control['username'].errors && isSubmitted, 'is-valid': !this.control['username'].errors && isSubmitted}" 
-               formControlName="username" class="form-control" placeholder="cobraqui_@02">
+              <input type="text"    [ngClass]="{'is-invalid':this.control['email'].errors && isSubmitted, 'is-valid': !this.control['email'].errors && isSubmitted}" 
+               formControlName="email" class="form-control" placeholder="grupo_boa_vida_@exemplo.com">
             </div>
-            <div *ngIf="this.control['username'].invalid && isSubmitted">
+            <div *ngIf="this.control['email'].invalid && isSubmitted">
   
               <div >
                 <span class="text-danger">* nome do utilizador é obrigatorio</span>

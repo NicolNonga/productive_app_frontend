@@ -1,14 +1,14 @@
 export class User {
 
-    username!: string;
+    fullName!: string;
     email!:string;
-    telefone!: string;
+    phoneNumber!: string;
     firstAcess!:boolean;
     isActive!:boolean;
-    name!:string;
     createdAt!: Date;
     id?: string;
-    password?: string
+    firstAccess?: boolean
+    updatedAt?:Date
 
 
 }
@@ -16,6 +16,11 @@ export class User {
 export class  Token {
 
     token?: string
+    type!:string
+    name!: string | null
+    lastUsedAt: any
+    expiresAt: any
+    abilities! : Array<string>
 
 }
 

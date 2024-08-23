@@ -31,7 +31,7 @@
         <a
           href="javascript:void(0)"
        
-          ><span>User Test</span></a
+          ><span>{{this.currentuser.user.fullName}}</span></a
         >
       </div>
     </div>
@@ -56,6 +56,92 @@
           </a>
         </li>
 
+        <li class="nav-item has-treeview" [class.menu-open]="menuOpen['configuracoes']">
+          <a class="nav-link" (click)="toggleMenu('configuracoes')">
+            <i class="nav-icon fa fa-sitemap"></i>
+            <p>Configurações<i class="right fa fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" [class.menu-open]="menuOpen['controlAcesso']">
+              <a class="nav-link" (click)="toggleMenu('controlAcesso')">
+                <i class="fa fa-key nav-icon"></i>
+                <p>Control de Acesso<i class="right fa fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview nav-fourview">
+                <li class="nav-item">
+                  <a routerLink="/control-acesso/utilizadores" routerLinkActive="active" class="nav-link">
+                    <i class="fa fa-users nav-icon"></i> Utilizadores
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/contaCorrente" routerLinkActive="active" class="nav-link">
+                    <i class="fa fa-cc nav-icon"></i> Conta Corrente
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/segmentacao-cliente" routerLinkActive="active" class="nav-link">
+                    <i class="fa fa-th-list nav-icon"></i> Níveis Segmentação
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview" [class.menu-open]="menuOpen['proForma']">
+              <a class="nav-link" (click)="toggleMenu('proForma')">
+                <i class="fa fa-money nav-icon"></i>
+                <p>Pró-Forma<i class="right fa fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a routerLink="/orcamento" routerLinkActive="active" class="nav-link">
+                    <i class="fa fa-plus nav-icon"></i> Registar Pró-Forma
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/listarOrcamento" routerLinkActive="active" class="nav-link">
+                    <i class="fa fa-file-archive-o nav-icon"></i> Listar Pró-Forma
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview" [class.menu-open]="menuOpen['encomendas']">
+              <a class="nav-link" (click)="toggleMenu('encomendas')">
+                <i class="fa fa-gift nav-icon"></i>
+                <p>Encomendas<i class="right fa fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item has-treeview" [class.menu-open]="menuOpen['registrar']">
+                  <a class="nav-link" (click)="toggleMenu('registrar')">
+                    <i class="fa fa-unlock-alt nav-icon"></i>
+                    <p>Registrar<i class="right fa fa-angle-left"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a routerLink="/crm/encomenda/registar/normal" routerLinkActive="active" class="nav-link">
+                        <i class="fa fa-users nav-icon"></i> Encomenda Normal
+                      </a>
+                    </li>
+                    <!-- Uncomment or add more items as needed -->
+                    <!-- <li class="nav-item">
+                      <a routerLink="/crm/encomenda/registar/oferta" routerLinkActive="active" class="nav-link">
+                        <i class="fa fa-lock nav-icon"></i> Encomenda de Oferta
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/crm/encomenda/campanha-promocional" routerLinkActive="active" class="nav-link">
+                        <i class="fa fa-gift nav-icon"></i> Encomenda de Campanha
+                      </a>
+                    </li> -->
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/crm/encomenda/listar" routerLinkActive="active" class="nav-link">
+                    <i class="fa fa-file-archive-o nav-icon"></i> Listar Encomendas
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
  
 
       

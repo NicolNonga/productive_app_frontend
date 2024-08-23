@@ -13,7 +13,7 @@ export class HttpAuthenticationService {
 
   loginUser(userFields: AuthPayload): Observable<LoginResponseInterface> {
     return this.httpClient
-      .post<LoginResponseInterface>(`${environment.app_url}/login`, userFields)
+      .post<LoginResponseInterface>(`${environment.app_url}/auth`, userFields)
       .pipe();
   }
 }

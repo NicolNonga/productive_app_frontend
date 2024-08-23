@@ -1,0 +1,12 @@
+.nav-treeview {
+    display: none;
+  }
+  
+  .nav-item.menu-open > .nav-treeview {
+    display: block;
+  }
+
+  .sidebar-dark-warning .nav-sidebar > .nav-item > .nav-link.active {
+    color: #fff;
+    background-color: #4c81f0 !important;
+}

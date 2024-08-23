@@ -5,6 +5,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from "@angular/forms";
 import { LoginForm } from "../interfaces/login-form.interface";
 import { setLocalStoreService } from "../../../core/services/authentication/auth.service";
@@ -43,21 +44,19 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-      if(this.loginForm.get("username")!.value == "admin" && this.loginForm.get("password")?.value === "123"){
-        this.route.navigate(["/"])
-      }
-/*     this.httpAuthService
+
+    this.httpAuthService
       .loginUser(this.loginForm.value)
       .subscribe((res: LoginResponseInterface) => {
         this.autheService.setItemToLocalStore(res.data);
         this.route.navigate(["/"]);
-      }); */
+      }); 
   }
 
   createFormGroup() {
     this.loginForm = new FormGroup<LoginForm>({
-      username: new FormControl("", { nonNullable: true }),
-      password: new FormControl("", { nonNullable: true }),
+      email: new FormControl("",  Validators.required ),
+      password: new FormControl("", Validators.required),
     });
   }
   get control() {
