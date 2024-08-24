@@ -49,6 +49,17 @@ export const routes: Routes = [
 
   },
   loadComponent : () => import("./features/feature-acess-control/components/list-users/list-users.component").then(comp=>comp.ListUsersComponent)
+},
+{
+  path:"acess_control/list-permissions",
+  data:{
+    title: "Listagem todas permissões",
+    layout: {
+      customLayout: true,
+      layoutNavigationTop: true
+    }
+  },
+  loadComponent: () => import("./features/feature-acess-control/components/permission/permission.component").then(comp=>comp.PermissionComponent)
 }
 ]
 

@@ -9,7 +9,7 @@ import {
 import { UsersHttpService } from "../../services/hptt/users-http.service";
 import { UserForm, userInterface } from "../../model/user.model";
 import { RoleHttpService } from "../../services/hptt/roles-http.service";
-import { RoleDropDownList } from "../../../../core/model/role.model";
+import { RoleDropDownList } from "../../model/role.model";
 
 @Component({
   selector: "app-create-or-edit-users",

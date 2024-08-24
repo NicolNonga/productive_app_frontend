@@ -2,7 +2,7 @@ import { Injectable, Signal, signal } from "@angular/core";
 import { HttpHandleService } from "../../../../core/http/http-handle.service";
 import { finalize, Observable } from "rxjs";
 import { toSignal } from "@angular/core/rxjs-interop";
-import { RoleDropDownList } from "../../../../core/model/role.model";
+import { RoleDropDownList } from "../../model/role.model";
 
 @Injectable({
     providedIn: 'root'

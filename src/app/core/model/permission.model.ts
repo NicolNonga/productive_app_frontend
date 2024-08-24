@@ -1,2 +1,2 @@
-import { RoleInterface } from "./role.model"
+import { RoleInterface } from "../../features/feature-acess-control/model/role.model"
 

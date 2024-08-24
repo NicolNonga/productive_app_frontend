@@ -8,7 +8,7 @@ export const HttpTokenInterceptor : HttpInterceptorFn = (req, next) => {
 
     const authReq = req.clone({
         setHeaders: {
-             Authorization: `Bearer ${currentUser?.currentUser?.token?.token}`
+             Authorization: `Bearer ${currentUser?.getItemFromLocalStore?.token?.token}`
         }
     })
 

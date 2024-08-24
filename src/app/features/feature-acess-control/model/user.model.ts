@@ -1,5 +1,5 @@
 import { FormControl } from "@angular/forms";
-import { RoleInterface } from "../../../core/model/role.model";
+import { RoleInterface } from "./role.model";
 
 
 export class UserModel {

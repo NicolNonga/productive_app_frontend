@@ -27,6 +27,9 @@ export class HttpHandleService implements HttpBaseInterface {
     put(url: string, data: any, paramsId: string | number): Observable<any> {
         return this.httpClient.put(`${this.baseUrl}${url}/${paramsId}`, data).pipe()
     }
+    genericPut(url:string, data:any){
+        return this.httpClient.put(`${this.baseUrl}/${url}`, data).pipe()
+    }
 
     createParams(params?: ParamsType){
         let httpParams = new HttpParams();
