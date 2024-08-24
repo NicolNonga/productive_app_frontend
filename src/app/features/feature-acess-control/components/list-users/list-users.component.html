@@ -252,7 +252,7 @@
                     </a>
                   </div>
                 </div>
-                <button class="btn btn-secondary btn-flat" type="button">
+                <button (click)="this.realoadUser()" class="btn btn-secondary btn-flat" type="button">
                   <i class="fa fa-refresh"></i>
                   Recarregar</button
                 >
@@ -264,7 +264,7 @@
               <div class="modal-body">
                 <table class="table table-hover table-bordered text-center" *ngIf="this.users()">
                   <tbody>
-                    <tr class="bg-secondary">
+                    <tr class="bg-secondary" >
                       <th>#</th>
                       <th>Nome </th>
                       <th>Email</th>

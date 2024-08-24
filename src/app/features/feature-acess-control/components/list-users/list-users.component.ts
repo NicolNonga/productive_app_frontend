@@ -23,7 +23,6 @@ export class ListUsersComponent {
   private environmentInjector = inject(EnvironmentInjector);
   constructor() {
     this.users = this.userHttpService.toSignalUsers();
-    console.log(this.users())
   }
 
   public realoadUser() {

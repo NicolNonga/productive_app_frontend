@@ -53,7 +53,7 @@
                               placeholder="john.doe@cobraqui.com"
                               type="email"
                               class="form-control ng-untouched ng-pristine ng-valid"
-                              formControlfullName="email"
+                              formControlName="email"
                               [ngClass]="{'is-invalid':this.control['email'].invalid && isSubmitted, 'is-valid': !this.control['email'].invalid && isSubmitted}"
                             />
                    
@@ -78,7 +78,7 @@
                               placeholder="+258 999 999 999"
                               type="text"
                               class="form-control ng-untouched ng-pristine ng-valid"
-                              formControlfullName="phone_number"
+                              formControlName="phone_number"
                             />
                           </div>
                           <div *ngIf="this.control['phone_number'].invalid && isSubmitted">
@@ -94,15 +94,15 @@
                         <div class="form-group">
                           <label for="roleId"><i class="fa fa-user"></i> Perfil</label>
                           <div class="input-group">
-                            <input
-                              id="roleId"
-                              placeholder="Avenida 05, Malhangalene, Maputo."
-                              type="text"
-                              formControlfullName="roleId"
-                              [ngClass]="{'is-invalid':this.control['roleId'].invalid && isSubmitted, 'is-valid': !this.control['roleId'].invalid && isSubmitted}"
-                             
-                              class="form-control ng-untouched ng-pristine ng-valid"
-                            />
+                            <select name="cars" id="cars"  class="form-control ng-untouched ng-pristine ng-valid"     formControlName="roleId"
+                            [ngClass]="{'is-invalid':this.control['roleId'].invalid && isSubmitted, 'is-valid': !this.control['roleId'].invalid && isSubmitted}"
+                            > 
+                              <option value=""></option>
+                              <option [value]="role.id" *ngFor="let role of roleDropDownList().data" >
+                                {{role.name}}
+                              </option>
+                       
+                            </select>
                           </div>
                           <div *ngIf="this.control['roleId'].invalid && isSubmitted">
   

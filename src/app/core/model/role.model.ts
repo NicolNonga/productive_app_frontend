@@ -5,3 +5,7 @@ export interface RoleInterface {
     createdAt: Date
     updatedAt: Date
   }
+
+  export interface RoleDropDownList{
+    data : RoleInterface []
+  }

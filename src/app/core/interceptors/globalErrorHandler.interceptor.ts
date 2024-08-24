@@ -34,7 +34,7 @@ export const GlobalErrorHandler: HttpInterceptorFn = (
       return event;
     }),
     catchError((error: HttpErrorResponse) => {
-      notifier.showError("Errp")
+     
       if (error instanceof HttpErrorResponse) {
    
         if ([400, 404,422,401].includes(error.status)) {
@@ -51,7 +51,8 @@ export const GlobalErrorHandler: HttpInterceptorFn = (
           notifier.showError(message);
         }
       }
-      throw new Error(error.message);
+      console.log(error)
+      throw new Error( "Falha ao carregar item");
     }),
   );
 };
