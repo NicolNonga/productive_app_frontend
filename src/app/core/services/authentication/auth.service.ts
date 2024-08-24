@@ -45,6 +45,7 @@ export class setLocalStoreService {
     if (!this.loggedIn$()) {
       return new AuthenticationModel();
     }
+    console.log(this.getItemFromLocalStore)
     return new AuthenticationModel().deserialize({
       ...this.getItemFromLocalStore,
     });

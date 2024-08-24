@@ -1,35 +1,32 @@
 import { FormControl } from "@angular/forms";
+import { RoleInterface } from "../../../core/model/role.model";
+
 
 export class UserModel {
-  user!: userInterface;
+  data!: userInterface;
   //role!: RoleInterface;
 }
 
 export interface userInterface {
-  id: string;
-  name: string;
-  username: string;
+  id: number;
+  fullName: string;
   email: string;
-  telefone: string;
-  is_active: boolean;
-  updated_at: Date;
-  created_at: Date;
-  role : RoleInterface[]
+  phoneNumber: string;
+  firstAcess:boolean
+  roleId: number
+  role? :  RoleInterface
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface ResponseUsers {
-  data: UserModel [];
+  data: userInterface [];
 }
 
-export interface RoleInterface {
-  id: string;
-  name: string;
-}
 
 export interface UserForm {
-  name: FormControl<string>;
-  email: FormControl<string>;
-  telefone: FormControl<string>;
-  username: FormControl<string>;
-  address: FormControl<string>;
+  fullName: FormControl<string | null>;
+  email: FormControl<string | null>;
+  phone_number: FormControl<string | null>;
+  roleId: FormControl<string | null>;
 }

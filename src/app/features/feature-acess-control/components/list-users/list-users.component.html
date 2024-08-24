@@ -196,7 +196,7 @@
 
                             <button
                               type="button"
-                              class="btn btn-warning btn-flat"
+                              class="btn btn-warning btn-flat btn-cadastrar"
                             >
                               <i class="fa fa-eraser"></i> Limpar
                             </button>
@@ -221,10 +221,18 @@
             style="box-shadow: 0 0 0rem rgba(0, 0, 0, 0.5)"
           >
             <div class="modal-header">
-              <h4 class="modal-title">TABELA DOS LOGS</h4>
+              <h4 class="modal-title">TABELA DOS UTILZADORES</h4>
 
               <div class="card-tools">
                 <div class="btn-group">
+                  <button
+                  type="button"
+                  class="btn btn-warning btn-flat btn-cadastrar"
+                  data-toggle="modal"
+                  data-target="#createOrEditUserModal"
+                >
+                  <i class="fa fa-users"></i> Registar Novo Utilizador
+                </button>
                   <button
                     class="btn btn-secondary dropdown-toggle dropdown-icon btn-flat"
                     data-toggle="dropdown"
@@ -254,38 +262,26 @@
             <!-- Modal body -->
             <div class="modal-body">
               <div class="modal-body">
-                <table class="table table-hover table-bordered text-center">
+                <table class="table table-hover table-bordered text-center" *ngIf="this.users()">
                   <tbody>
                     <tr class="bg-secondary">
                       <th>#</th>
-                      <th>Nome de Usuário</th>
-                      <th>Nome da aplicacao</th>
-                      <th>Data de abertura</th>
-                      <th>Data de fecho</th>
-                      <th>Tempo gasto</th>
-                       <th>Ip</th>
-                       <th>Mac Address</th>
+                      <th>Nome </th>
+                      <th>Email</th>
+                      <th>Telefone</th>
+                      <th>perfil</th>
+                      <th>Data de criação</th>
                       <th>Acção</th>
                     </tr>
-                    @for (user of this.users().data; track user.user.id; let index = $index) {
+                    @for (user of this.users().data; track user.id; let index = $index) {
 
                     <tr >
                         <td>{{index + 1}}</td>
-                        <td class="bg-style">{{ user.user.name }}</td>
-                        <td>{{ user.user.username }}</td>
-                        <td>{{  "Sem Perfil"}}</td>
-                        <td>{{ user.user.telefone }}</td>
-                        <td>
-                          <span
-                            class="btn btn-flat btn-sm bg-success access-platform-mobile-style"
-                            type="button"
-                            ><b>{{
-                              user.user.is_active ?  " Activo": " Nao Activo"
-                            }}</b></span
-                          >
-                        </td>
-
-                        <td>{{ user.user.created_at | date : "MM-DD-YYYY"}}</td>
+                        <td class="bg-style">{{ user.fullName }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.phoneNumber }}</td>
+                        <td>{{ user.role ?  user.role.name : "sem perfil"}}</td>
+                        <td>{{ user.createdAt| date : "MM-DD-YYYY"}}</td>
                         <td>
                           <div class="btn-group">
                             <button
@@ -355,8 +351,7 @@
       </div>
     </div>
 
+    <app-create-or-edit-users (userCreated)="this.realoadUser()"></app-create-or-edit-users>
     <!-- TABLE SECTION-->
   </div>
 
- 
-<app-create-or-edit-users (userCreated)="this.realoadUser()"></app-create-or-edit-users>

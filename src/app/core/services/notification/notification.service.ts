@@ -16,6 +16,7 @@ export class NotificationService {
   }
 
   public showError(message: string) {
+    console.log(message)
     this.toastService.error(message, this.titleFail);
   }
 }

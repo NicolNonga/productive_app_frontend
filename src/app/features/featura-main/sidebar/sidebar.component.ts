@@ -20,6 +20,7 @@ export class SidebarComponent  implements OnInit{
   ngOnInit(): void {
 
      this.currentuser = this.authService.currentUser
+     console.log(this.currentuser)
     /* this.currentuser = this.authService.currentUser
     console.log(this.currentuser.user.username)
   } */

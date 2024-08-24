@@ -21,6 +21,7 @@ export const GlobalErrorHandler: HttpInterceptorFn = (
       if (event instanceof HttpResponse) {
         if ([401, 403].includes(event.status)) {
           // add Log out  from the system
+          notifier.showError("falha")
         }
 
         if ([200, 201].includes(event.status) && req.method !== "GET") {
@@ -33,12 +34,14 @@ export const GlobalErrorHandler: HttpInterceptorFn = (
       return event;
     }),
     catchError((error: HttpErrorResponse) => {
+      notifier.showError("Errp")
       if (error instanceof HttpErrorResponse) {
-        if ([400, 404].includes(error.status)) {
+   
+        if ([400, 404,422,401].includes(error.status)) {
           notifier.showError(error?.error.message);
         }
         if (error.status === 0) {
-          console.log("deficuldades");
+        
           message = "Dificuldade em estabelecer conexão com o servidor";
           notifier.showError(message);
         }

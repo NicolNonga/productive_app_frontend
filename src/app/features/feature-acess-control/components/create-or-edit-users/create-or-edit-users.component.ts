@@ -4,6 +4,7 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
+  Validators,
 } from "@angular/forms";
 import { UsersHttpService } from "../../services/hptt/users-http.service";
 import { UserForm, userInterface } from "../../model/user.model";
@@ -26,11 +27,10 @@ export class CreateOrEditUsersComponent {
 
   createForm() {
     this.userFormGroup = new FormGroup<UserForm>({
-      name: new FormControl("", { nonNullable: true }),
-      email: new FormControl("", { nonNullable: true }),
-      telefone: new FormControl("", { nonNullable: true }),
-      username: new FormControl("", { nonNullable: true }),
-      address: new FormControl("", { nonNullable: true }),
+      fullName: new FormControl("", Validators.required),
+      email: new FormControl("", Validators.required),
+      phone_number: new FormControl("", Validators.required),
+      roleId: new FormControl("",  Validators.required),
     });
   }
   get control() {
@@ -53,9 +53,5 @@ export class CreateOrEditUsersComponent {
       }
     });
   }
-  editUser(){
-    effect(()=> {
-      
-    })
-  }
+
 }

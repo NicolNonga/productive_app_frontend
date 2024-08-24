@@ -36,6 +36,19 @@ export const routes: Routes = [
       }
   },
   loadComponent : () => import('./features/feature-logs/componets/logs/logs.component').then(mod=> mod.LogsComponent)
+},
+{
+  path: "acess_control/list-users",
+  canActivate: [AuthGuard],
+  data:{
+    title: "Listagem todos os utilizadores",
+    layout: {
+      customLayout: true,
+      layoutNavigationTop: true
+    }
+
+  },
+  loadComponent : () => import("./features/feature-acess-control/components/list-users/list-users.component").then(comp=>comp.ListUsersComponent)
 }
 ]
 

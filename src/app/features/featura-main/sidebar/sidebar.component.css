@@ -10,3 +10,6 @@
     color: #fff;
     background-color: #4c81f0 !important;
 }
+.sidebar-dark-warning .nav-treeview > .nav-item > .nav-link.active{
+  background-color: #4c81f0 !important;
+}

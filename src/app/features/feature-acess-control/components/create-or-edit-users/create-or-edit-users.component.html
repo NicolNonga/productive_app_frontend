@@ -26,16 +26,16 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="name"><i class="fa fa-edit"></i> Nome</label
+                          <label for="fullName"><i class="fa fa-edit"></i> Nome</label
                           ><input
-                            id="name"
+                            id="fullName"
                             placeholder="John Doe"
                             type="text"
-                            formControlName="name"
-                            [ngClass]="{'is-invalid':this.control['name'].invalid && isSubmitted, 'is-valid': !this.control['name'].invalid && isSubmitted}"
+                            formControlName="fullName"
+                            [ngClass]="{'is-invalid':this.control['fullName'].invalid && isSubmitted, 'is-valid': !this.control['fullName'].invalid && isSubmitted}"
                             class="form-control"
                           />
-                          <div *ngIf="this.control['name'].invalid && isSubmitted">
+                          <div *ngIf="this.control['fullName'].invalid && isSubmitted">
   
                               <div >
                                 <span class="text-danger">* Nome é obrigatorio</span>
@@ -53,7 +53,7 @@
                               placeholder="john.doe@cobraqui.com"
                               type="email"
                               class="form-control ng-untouched ng-pristine ng-valid"
-                              formControlName="email"
+                              formControlfullName="email"
                               [ngClass]="{'is-invalid':this.control['email'].invalid && isSubmitted, 'is-valid': !this.control['email'].invalid && isSubmitted}"
                             />
                    
@@ -67,77 +67,53 @@
                         </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label for="phone"><i class="fa fa-phone"></i> Contacto</label>
                           <div class="input-group">
                             <input
                               id="phone"
-                              [ngClass]="{'is-invalid':this.control['telefone'].invalid && isSubmitted, 'is-valid': !this.control['telefone'].invalid && isSubmitted}"
+                              [ngClass]="{'is-invalid':this.control['phone_number'].invalid && isSubmitted, 'is-valid': !this.control['phone_number'].invalid && isSubmitted}"
                       
                               placeholder="+258 999 999 999"
                               type="text"
                               class="form-control ng-untouched ng-pristine ng-valid"
-                              formControlName="telefone"
+                              formControlfullName="phone_number"
                             />
                           </div>
-                          <div *ngIf="this.control['telefone'].invalid && isSubmitted">
+                          <div *ngIf="this.control['phone_number'].invalid && isSubmitted">
   
                             <div >
-                              <span class="text-danger">* O telefone  é obrigatorio</span>
+                              <span class="text-danger">* O Telefone  é obrigatorio</span>
                             </div>
   
                         </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
-                          <label for="address"><i class="fa fa-home"></i> Morada</label>
+                          <label for="roleId"><i class="fa fa-user"></i> Perfil</label>
                           <div class="input-group">
                             <input
-                              id="address"
+                              id="roleId"
                               placeholder="Avenida 05, Malhangalene, Maputo."
                               type="text"
-                              formControlName="address"
-                              [ngClass]="{'is-invalid':this.control['address'].invalid && isSubmitted, 'is-valid': !this.control['address'].invalid && isSubmitted}"
+                              formControlfullName="roleId"
+                              [ngClass]="{'is-invalid':this.control['roleId'].invalid && isSubmitted, 'is-valid': !this.control['roleId'].invalid && isSubmitted}"
                              
                               class="form-control ng-untouched ng-pristine ng-valid"
                             />
                           </div>
-                          <div *ngIf="this.control['address'].invalid && isSubmitted">
+                          <div *ngIf="this.control['roleId'].invalid && isSubmitted">
   
                             <div >
-                              <span class="text-danger">*A Morada  é obrigatorio</span>
+                              <span class="text-danger">*O Perfil   é obrigatorio</span>
                             </div>
   
                         </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="username"
-                            ><i class="fa fa-user"></i> Nome de Usuário</label
-                          >
-                          <div class="input-group">
-                            <input
-                              id="username"
-                              placeholder="john.doe"
-                              type="text"
-                              formControlName="username"
-                              [ngClass]="{'is-invalid':this.control['username'].invalid && isSubmitted, 'is-valid': !this.control['username'].invalid && isSubmitted}"
-                              ng-reflect-options="[object Object]"
-                              class="form-control ng-untouched ng-pristine ng-valid"
-                            />
-                          </div>
-                          <div *ngIf="this.control['username'].invalid && isSubmitted">
-  
-                            <div >
-                              <span class="text-danger">*A Username  é obrigatorio</span>
-                            </div>
-  
-                        </div>
-                        </div>
-                      </div>
+                 
   
   
                     </div>

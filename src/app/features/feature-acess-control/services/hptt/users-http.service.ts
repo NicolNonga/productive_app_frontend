@@ -5,21 +5,22 @@ import { ResponseUsers } from '../../model/user.model';
 import { environment } from '../../../../../environment/environment';
 import { IcreateUser } from '../../../../core/interface/user.interface';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { HttpHandleService } from '../../../../core/http/http-handle.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UsersHttpService {
-  private url: string = environment.app_url;
+export class UsersHttpService extends HttpHandleService {
   public isComplete = signal(false);
-  constructor(private http: HttpClient) {}
+
 
   public getUsers(): Observable<ResponseUsers> {
-    return this.http.get<ResponseUsers>(`${this.url}/users`);
+       return this.GetAll("users")
   }
 
   public create(payload: IcreateUser): Observable<void> {
-    return this.http.post<void>(`${this.url}/users`, payload);
+   // return this.http.post<void>(`${this.url}/users`, payload);
+   return this.Post("users", payload)
   }
 
   public toSignalUsers(): Signal<ResponseUsers> {
