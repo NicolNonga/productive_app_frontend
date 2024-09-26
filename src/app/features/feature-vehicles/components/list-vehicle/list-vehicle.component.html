@@ -123,6 +123,15 @@
                                   ><i class="fa fa-edit"></i> Editar </a
                                 >
 
+                                <a
+                                (click)="this.setVehicle(vehicles)"
+                                class="dropdown-item btn-sm"
+                                href="javascript:void(0)"
+                                data-toggle="modal"
+                                data-target="#addPartToVehile"
+                                ><i class="fa fa-plus"></i> Adicionar Peças </a
+                              >
+
 
 
 
@@ -158,3 +167,4 @@
       </div>
 </div>
 <app-create-or-edit-vehicle (vehicleCreatedOrEdited)="this.reloadVehicles()" [vehicleValue]="this.vehicleValue()"></app-create-or-edit-vehicle>
+<app-add-part-to-vehicle [vehicle]="this.vehicleValue()"></app-add-part-to-vehicle>

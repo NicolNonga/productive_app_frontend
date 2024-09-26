@@ -37,6 +37,10 @@ export class HttpHandleService implements HttpBaseInterface {
         return this.httpClient.delete(`${this.baseUrl}/${url}`).pipe(tap(), takeUntilDestroyed(this.destroyRef))
     }
 
+    getFile(url: string, params?: ParamsType | undefined) {
+        return this.httpClient.get(`${this.baseUrl}/${url}`, { responseType: 'blob' }).pipe(tap(), takeUntilDestroyed(this.destroyRef))
+   }
+
     createParams(params?: ParamsType){
         let httpParams = new HttpParams();
         if(params){

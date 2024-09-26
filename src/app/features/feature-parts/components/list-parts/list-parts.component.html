@@ -121,8 +121,8 @@
                                   class="dropdown-item btn-sm"
                                   href="javascript:void(0)"
                                   data-toggle="modal"
-                                  data-target="#createModal"
-                                  ><i class="fa fa-edit"></i> Editar </a
+                                  data-target="#DetailModal"
+                                  ><i class="fa fa-edit"></i> Ver Detalhes </a
                                 >
 
 
@@ -160,3 +160,4 @@
       </div>
 </div>
 <app-create-or-edit-part (partCreatedOrEdited)="this.reloadParts()" [partValues]="this.partValue()"></app-create-or-edit-part>
+<app-detail-part [partValues]="this.partValue()"></app-detail-part>

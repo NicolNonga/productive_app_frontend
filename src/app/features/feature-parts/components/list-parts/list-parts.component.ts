@@ -3,11 +3,12 @@ import { Component, EnvironmentInjector, inject, runInInjectionContext, signal, 
 import { Part, ResponsePart } from '../../model/part.model';
 import { PartHttpService } from '../../service/part-http.service';
 import { CreateOrEditPartComponent } from '../create-or-edit-part/create-or-edit-part.component';
+import { DetailPartComponent } from '../detail-part/detail-part.component';
 
 @Component({
   selector: 'app-list-parts',
   standalone: true,
-  imports: [CommonModule, CreateOrEditPartComponent],
+  imports: [CommonModule, CreateOrEditPartComponent, DetailPartComponent],
   templateUrl: './list-parts.component.html',
   styleUrl: './list-parts.component.css'
 })

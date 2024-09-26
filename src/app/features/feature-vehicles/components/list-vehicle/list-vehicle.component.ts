@@ -3,11 +3,12 @@ import { Component, EnvironmentInjector, inject, runInInjectionContext, signal, 
 import { ResponseVehicle, Vehicle } from '../../model/vehicle.model';
 import { VehicleHttpService } from '../../services/vehicle-htto.service';
 import { CreateOrEditVehicleComponent } from '../create-or-edit-vehicle/create-or-edit-vehicle.component';
+import { AddPartToVehicleComponent } from '../add-part-to-vehicle/add-part-to-vehicle.component';
 
 @Component({
   selector: 'app-list-vehicle',
   standalone: true,
-  imports: [CommonModule, CreateOrEditVehicleComponent],
+  imports: [CommonModule, CreateOrEditVehicleComponent, AddPartToVehicleComponent],
   templateUrl: './list-vehicle.component.html',
   styleUrl: './list-vehicle.component.css'
 })

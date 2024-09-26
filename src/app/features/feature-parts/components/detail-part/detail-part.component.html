@@ -1,16 +1,33 @@
-<div id="createModal" class="modal fade" role="dialog">
+<div id="DetailModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content" style="width: 990px;">
         <form novalidate="" class="ng-untouched ng-pristine ng-valid">
           <div class="modal-header">
             <h4 class="modal-title">
-              <i class="fa fa-plus"></i> Registar Peças
+              <i class="fa fa-cog "></i>Detalhes da Peça - {{this.partValues().nome}}
             </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
               <form [formGroup]="this.partForm">
                   <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <input id="fileInput" style="display: none" type="file" /><label
+                            for="fileInput"
+                            style="cursor: pointer"
+                            >
+                            @if (this.url != undefined) {
+                                <img
+                                alt="Photo"
+                                class="profile-user-img img-fluid img-circle"
+                                style="border-radius: 4%; margin: 0 20px; width: 188px"
+                                [src]="this.url"
+                            />
+                            }
+                     </label>
+                        </div>
+                      </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="nome"><i class="fa fa-edit"></i> Nome</label
@@ -19,6 +36,7 @@
                             placeholder="nome da peça"
                             type="text"
                             formControlName="nome"
+                            readonly
                             [ngClass]="{'is-invalid':this.control['nome'].invalid && isSubmitted, 'is-valid': !this.control['nome'].invalid && isSubmitted}"
                             class="form-control"
                           />
@@ -37,6 +55,7 @@
                           <div class="input-group">
                             <input
                               id="reference"
+                              readonly
                               placeholder="referencia da peça"
                               type="reference"
                               class="form-control ng-untouched ng-pristine ng-valid"
@@ -55,33 +74,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="type_part_id"><i class="fa fa-user"></i> Tipo</label>
-                          <div class="input-group">
-                            <select nome="cars" id="cars"  class="form-control ng-untouched ng-pristine ng-valid"     formControlName="type_part_id"
-                            [ngClass]="{'is-invalid':this.control['type_part_id'].invalid && isSubmitted, 'is-valid': !this.control['type_part_id'].invalid && isSubmitted}"
-                            >
-                              <option value=""></option>
-                              @for (item of this.typeParts().data; track $index) {
-                                 <option [value]="item.id">
-                                    {{item.type}}
 
-                                 </option>
-                              }
-
-
-                            </select>
-                          </div>
-                          <div *ngIf="this.control['type_part_id'].invalid && isSubmitted">
-
-                            <div >
-                              <span class="text-danger">*O Tipo   é obrigatorio</span>
-                            </div>
-
-                        </div>
-                        </div>
-                      </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="phone"><i class="fa fa-phone"></i>Preço </label>
@@ -89,7 +82,7 @@
                             <input
                               id="preco"
                               [ngClass]="{'is-invalid':this.control['price'].invalid && isSubmitted, 'is-valid': !this.control['price'].invalid && isSubmitted}"
-
+                              readonly
                               placeholder="preco da preça"
                               type="text"
                               class="form-control ng-untouched ng-pristine ng-valid"
@@ -113,7 +106,7 @@
                             <input
                               id="phone"
                               [ngClass]="{'is-invalid':this.control['description'].invalid && isSubmitted, 'is-valid': !this.control['description'].invalid && isSubmitted}"
-
+                              readonly
                               placeholder="descrição da peça"
                               type="text"
                               class="form-control ng-untouched ng-pristine ng-valid"
@@ -131,21 +124,6 @@
                       </div>
 
 
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="phone"><i class="fa fa-phone"></i>Ficheiro </label>
-                          <div class="input-group">
-                            <input
-                            (change)="this.onFileSelected($event)"
-                              id="file"
-                              type="file"
-                              class="form-control ng-untouched ng-pristine ng-valid"
-
-                            />
-                          </div>
-
-                        </div>
-                      </div>
 
 
 
@@ -154,26 +132,7 @@
               </form>
 
           </div>
-          <div class="modal-footer">
-            <button
-              class="btn btn-danger btn-sm btn-flat text-white"
-              type="button"
-            >
-              <i class="fa fa-close"></i> Fechar</button
-            ><button class="btn btn-secondary btn-sm btn-flat mr-1"  type="button">
-              <i class="fa fa-check"></i> Validar</button
-            >
-            @if (!this.partValues().id) {
-                <button (click)="this.createPart()" class="btn btn-success btn-sm btn-flat mr-1" type="button">
-                    <i class="fa fa-save"></i> Registar
-                  </button>
-            }
-            @if (this.partValues().id) {
-                <button (click)="this.updatePart()" class="btn btn-success btn-sm btn-flat mr-1" type="button">
-                    <i class="fa fa-save"></i> Actualizar
-                  </button>
-            }
-          </div>
+
         </form>
       </div>
     </div>

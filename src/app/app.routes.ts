@@ -126,5 +126,27 @@ export const routes: Routes = [
      }
    },
    loadComponent: ()=> import('./features/feature-parts/components/list-parts/list-parts.component').then((comp)=>comp.ListPartsComponent)
+ },
+ {
+    path:'stock/list',
+    data:{
+     title: "Listagem dos Stock",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/feature-stock/components/list-stock/list-stock.component').then((comp)=>comp.ListStockComponent)
+ },
+ {
+    path:'stock/moviment',
+    data:{
+     title: "Listagem movimento stock",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/feature-stock/components/list-moviment-stock/list-moviment-stock.component').then((comp)=>comp.ListMovimentStockComponent)
  }
 ]

@@ -80,6 +80,27 @@
 
         </ul>
       </li>
+
+      <li class="nav-item" [class.menu-open]="menuOpen['stock']">
+        <a class="nav-link" (click)="toggleMenu('stock')">
+          <i class="fa fa-cog nav-icon"></i>
+          <p>Stock<i class="right fa fa-angle-left"></i></p>
+        </a>
+        <ul class="nav nav-treeview nav-fourview">
+          <li class="nav-item">
+            <a routerLink="/stock/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+              <i class="fa fa-list nav-icon"></i> listagem dos stock
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/stock/moviment" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+              <i class="fa fa-list nav-icon"></i>Movimento Stock
+            </a>
+          </li>
+
+
+        </ul>
+      </li>
       <!--
        <li class="nav-item">
           <a routerLink="/logs" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link"

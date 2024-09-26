@@ -1,0 +1,52 @@
+<div id="addPartToVehile" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 990px;">
+        <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <i class="fa fa-plus"></i> Adicionar Peça para o veiculo - {{this.vehicle().brand}}
+            </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-hover table-bordered text-center">
+                <tbody>
+                    <tr class="bg-secondary" >
+                        <th>#</th>
+                        <th>Nome </th>
+                        <th>Referencia</th>
+
+                        <th>Acção</th>
+                      </tr>
+                </tbody>
+
+                @for (part of  this.parts(); track  part.id; let index = $index) {
+                     <tr>
+                        <td>{{index + 1}}</td>
+                        <td>{{part.nome}}</td>
+                        <td>{{part.description}}</td>
+                        <td>
+                            <input type="checkbox"  class="form-control" (change)="this.checkValueChange($event, part.id)"   [checked]="this.checkValueExist(part.id)">
+                        </td>
+                     </tr>
+                }
+
+            </table>
+
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-danger btn-sm btn-flat text-white"
+              type="button"
+            >
+              <i class="fa fa-close"></i> Fechar</button
+            >
+
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--bindings={
+      "ng-reflect-ng-if": "false"
+    }-->
+  </div>

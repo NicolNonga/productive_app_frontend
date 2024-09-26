@@ -1,6 +1,7 @@
 import { FormControl } from "@angular/forms"
 import { User } from "../../../core/model/user-authentication.model"
 import { VehicleType } from "../../feature-configuration/model/vehicle_type.model"
+import { Part } from "../../feature-parts/model/part.model"
 
 export interface Vehicle {
      id: number
@@ -13,6 +14,7 @@ export interface Vehicle {
      updatedAt: Date
      user : User
      vehicleType: VehicleType
+     parts: Part []
 }
 export interface ResponseVehicle{
     data : Vehicle []

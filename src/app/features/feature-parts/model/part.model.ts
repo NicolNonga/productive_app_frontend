@@ -14,6 +14,7 @@ export interface Part{
     isDeleted: boolean
     user: User
     typeParts: TypePart
+    fileName: string
 }
 
 export interface ResponsePart {
