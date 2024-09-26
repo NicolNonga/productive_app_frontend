@@ -1,0 +1,160 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">
+                <i class="fa icon icon-roles"></i> Veiculo
+              </h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Configurações</a></li>
+                <li class="breadcrumb-item active">Veiculo</li>
+                <li class="breadcrumb-item active">Listagem</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--TABLE SECTION-->
+      <div class="col-lg-12 col-12">
+        <div class="modall modal-info fadee" data-backdrop="static">
+          <div class="modal-dialog" style="max-width: 100%">
+            <div
+              class="modal-content"
+              style="box-shadow: 0 0 0rem rgba(0, 0, 0, 0.5)"
+            >
+              <div class="modal-header">
+                <h4 class="modal-title">TABELA TIPO DE VEICULOS</h4>
+
+                <div class="card-tools">
+                  <div class="btn-group">
+                    <button
+                    type="button"
+                    class="btn btn-warning btn-flat btn-cadastrar"
+                    data-toggle="modal"
+                    data-target="#createModal"
+                  >
+                    <i class="fa fa-roles"></i>Novo Veiculo
+                  </button>
+                    <button
+                      class="btn btn-secondary dropdown-toggle dropdown-icon btn-flat"
+                      data-toggle="dropdown"
+                      type="button"
+                    >
+                      <i class="fa fa-download"></i>
+                      Exportação
+                    </button>
+                    <div
+                      class="dropdown-menu"
+                      style="left: 40px"
+                      x-placement="bottom-start"
+                    >
+                      <a class="dropdown-item" href="javascript:void(0)"
+                        ><i class="fa fa-file-excel-o"></i>
+                        Excel
+                      </a>
+                    </div>
+                  </div>
+                  <button (click)="this.reloadVehicles()" class="btn btn-secondary btn-flat" type="button">
+                    <i class="fa fa-refresh"></i>
+                    Recarregar</button
+                  >
+                </div>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div class="modal-body">
+                  <table class="table table-hover table-bordered text-center" *ngIf="this.vehicles()">
+                    <tbody>
+                      <tr class="bg-secondary" >
+                        <th>#</th>
+                        <th>Modelo </th>
+                        <th>Marca</th>
+                        <th>Tipo</th>
+                        <th>Ano</th>
+                        <th>Operador</th>
+                        <th>Data de criação</th>
+                        <th>Acção</th>
+                      </tr>
+                      @for (vehicles of this.vehicles().data; track vehicles.id; let index = $index) {
+
+                      <tr >
+                          <td>{{index + 1}}</td>
+                          <td class="bg-style">{{ vehicles.brand }}</td>
+                          <td>{{ vehicles.model }}</td>
+                           <td>{{vehicles.vehicleType.type}}</td>
+                           <td>{{vehicles.year }}</td>
+                          <td>{{ vehicles.user.fullName }}</td>
+                          <td>{{vehicles.createdAt | date : "M/d/yy"}}</td>
+                          <td>
+                            <div class="btn-group">
+                              <button
+                                class="btn btn-secondary btn-flat btn-sm btn-block"
+                                data-toggle="dropdown"
+                                type="button"
+                              >
+                                Opções</button
+                              ><button
+                                aria-expanded="false"
+                                class="btn btn-secondary btn-flat dropdown-toggle"
+                                data-toggle="dropdown"
+                                type="button"
+                              >
+                                <span class="caret"></span
+                                ><span class="sr-only">Toggle Dropdown</span>
+                              </button>
+                              <div
+                                class="dropdown-menu drop-style"
+                                role="menu"
+                                x-placement="bottom-start"
+                              >
+                                <a
+                                  (click)="this.setVehicle(vehicles)"
+                                  class="dropdown-item btn-sm"
+                                  href="javascript:void(0)"
+                                  data-toggle="modal"
+                                  data-target="#createModal"
+                                  ><i class="fa fa-edit"></i> Editar </a
+                                >
+
+
+
+
+                              </div>
+                            </div>
+                          </td>
+
+
+                    </tr>
+                  } @empty {
+                       <p> Nenhum tipo de peças encontrado</p>
+                  }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="row" style="width: 100%">
+                  <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info">Mostrando de</div>
+                  </div>
+                  <div class="col-sm-12 col-md-7">
+                    <div class="pull-right">
+                      <!--  <pagination-controls (pageChange)="getPageFilterData($event)" previousLabel="Anterior" maxSize="6"
+                        nextLabel="Proximo" directionLinks="true" responsive="true"></pagination-controls> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<app-create-or-edit-vehicle (vehicleCreatedOrEdited)="this.reloadVehicles()" [vehicleValue]="this.vehicleValue()"></app-create-or-edit-vehicle>

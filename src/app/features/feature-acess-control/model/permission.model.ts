@@ -3,7 +3,7 @@ import { FormControl } from "@angular/forms"
 export interface PermissionInterface{
     id: number
     name: string
-    description:string | null
+    description:string
     createdAt: Date
     updatedAt: Date
     isActive:boolean
@@ -15,10 +15,13 @@ export interface ResponsePermissions {
 
 export interface PermissionPayload {
     name: string
-    description: string 
+    description: string
 }
 export interface permissionForm {
     name : FormControl<string | null>
     description: FormControl<string | null>
 }
-
+export interface PermissionRole{
+    role_id: number ,
+    permission_id: number
+}

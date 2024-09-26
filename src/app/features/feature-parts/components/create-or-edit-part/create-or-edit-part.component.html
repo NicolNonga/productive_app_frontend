@@ -1,0 +1,183 @@
+<div id="createModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 990px;">
+        <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <i class="fa fa-plus"></i> Registar Veiculo
+            </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="this.partForm">
+                  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="nome"><i class="fa fa-edit"></i> Nome</label
+                          ><input
+                            id="nome"
+                            placeholder="009-304"
+                            type="text"
+                            formControlName="nome"
+                            [ngClass]="{'is-invalid':this.control['nome'].invalid && isSubmitted, 'is-valid': !this.control['nome'].invalid && isSubmitted}"
+                            class="form-control"
+                          />
+                          <div *ngIf="this.control['nome'].invalid && isSubmitted">
+
+                              <div >
+                                <span class="text-danger">* Nome é obrigatorio</span>
+                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="reference"><i class="fa fa-envelope"></i> Referencia</label>
+                          <div class="input-group">
+                            <input
+                              id="reference"
+                              placeholder="IVEKO"
+                              type="reference"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="reference"
+                              [ngClass]="{'is-invalid':this.control['reference'].invalid && isSubmitted, 'is-valid': !this.control['reference'].invalid && isSubmitted}"
+                            />
+
+                          </div>
+                          <div *ngIf="this.control['reference'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">* Referencia  é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="type_part_id"><i class="fa fa-user"></i> Tipo</label>
+                          <div class="input-group">
+                            <select nome="cars" id="cars"  class="form-control ng-untouched ng-pristine ng-valid"     formControlName="type_part_id"
+                            [ngClass]="{'is-invalid':this.control['type_part_id'].invalid && isSubmitted, 'is-valid': !this.control['type_part_id'].invalid && isSubmitted}"
+                            >
+                              <option value=""></option>
+                              @for (item of this.typeParts().data; track $index) {
+                                 <option [value]="item.id">
+                                    {{item.type}}
+
+                                 </option>
+                              }
+
+
+                            </select>
+                          </div>
+                          <div *ngIf="this.control['type_part_id'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">*O Tipo   é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="phone"><i class="fa fa-phone"></i>Preço </label>
+                          <div class="input-group">
+                            <input
+                              id="phone"
+                              [ngClass]="{'is-invalid':this.control['price'].invalid && isSubmitted, 'is-valid': !this.control['price'].invalid && isSubmitted}"
+
+                              placeholder="1990"
+                              type="text"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="price"
+                            />
+                          </div>
+                          <div *ngIf="this.control['price'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">* O Ano  é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="phone"><i class="fa fa-phone"></i>Descrição </label>
+                          <div class="input-group">
+                            <input
+                              id="phone"
+                              [ngClass]="{'is-invalid':this.control['description'].invalid && isSubmitted, 'is-valid': !this.control['description'].invalid && isSubmitted}"
+
+                              placeholder="1990"
+                              type="text"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="description"
+                            />
+                          </div>
+                          <div *ngIf="this.control['description'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">* O Descrição  é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="phone"><i class="fa fa-phone"></i>Ficheiro </label>
+                          <div class="input-group">
+                            <input
+                            (change)="this.onFileSelected($event)"
+                              id="file"
+                              type="file"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+
+                            />
+                          </div>
+
+                        </div>
+                      </div>
+
+
+
+
+                    </div>
+              </form>
+
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-danger btn-sm btn-flat text-white"
+              type="button"
+            >
+              <i class="fa fa-close"></i> Fechar</button
+            ><button class="btn btn-secondary btn-sm btn-flat mr-1"  type="button">
+              <i class="fa fa-check"></i> Validar</button
+            >
+            @if (!this.partValues().id) {
+                <button (click)="this.createPart()" class="btn btn-success btn-sm btn-flat mr-1" type="button">
+                    <i class="fa fa-save"></i> Registar
+                  </button>
+            }
+            @if (this.partValues().id) {
+                <button (click)="this.updatePart()" class="btn btn-success btn-sm btn-flat mr-1" type="button">
+                    <i class="fa fa-save"></i> Actualizar
+                  </button>
+            }
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--bindings={
+      "ng-reflect-ng-if": "false"
+    }-->
+  </div>

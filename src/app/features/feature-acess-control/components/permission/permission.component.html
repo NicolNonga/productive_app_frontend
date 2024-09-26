@@ -309,18 +309,17 @@
                                 class="dropdown-item btn-sm"
                                 href="javascript:void(0)"
                                 ><i class="fa fa-edit"></i> Editar </a
-                              ><!--bindings={
-                    "ng-reflect-ng-if": "false"
-                  }--><!--bindings={
-                    "ng-reflect-ng-if": "true"
-                  }--><a class="dropdown-item btn-sm" (click)="desablePermission(permissao.id)" href="javascript:void(0)"
+                                >
+                                @if (permissao.isActive) {
+                                    <a class="dropdown-item btn-sm"  (click)="desablePermission(permissao.id)" href="javascript:void(0)"
                                 ><i class="fa fa-toggle-off"></i> Inactivar </a
-                              ><!--bindings={
-                    "ng-reflect-ng-if": "true"
-                  }--><a class="dropdown-item btn-sm" href="javascript:void(0)"
-                                ><i class="fa fa-unlock"></i>
-                                Redefinir Senha
-                              </a>
+                              >
+                                }
+                               @if (!permissao.isActive) {
+                                <a class="dropdown-item btn-sm"  (click)="this.enablePermission(permissao.id)" href="javascript:void(0)"
+                                ><i class="fa fa-toggle-off"></i> Activar </a
+                              >
+                               }
                             </div>
                           </div>
                         </td>
@@ -354,8 +353,7 @@
 
 
 
-  
+
     <!-- TABLE SECTION-->
   </div>
    <app-create-or-edit-permission (permissionCreated)="this.realoadPermissions()"></app-create-or-edit-permission>
-

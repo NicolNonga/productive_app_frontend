@@ -9,11 +9,12 @@ import {
 import { UsersHttpService } from '../../services/hptt/users-http.service';
 import { ResponseUsers } from '../../model/user.model';
 import { CreateOrEditUsersComponent } from '../create-or-edit-users/create-or-edit-users.component';
+import { AddPermissonToRoleComponent } from '../add-permisson-to-role/add-permisson-to-role.component';
 
 @Component({
   selector: 'app-list-users',
   standalone: true,
-  imports: [CommonModule, CreateOrEditUsersComponent],
+  imports: [CommonModule, CreateOrEditUsersComponent, AddPermissonToRoleComponent],
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.css',
 })
@@ -21,6 +22,7 @@ export class ListUsersComponent {
   public users: Signal<ResponseUsers>;
   private userHttpService = inject(UsersHttpService);
   private environmentInjector = inject(EnvironmentInjector);
+
   constructor() {
     this.users = this.userHttpService.toSignalUsers();
   }
@@ -29,7 +31,7 @@ export class ListUsersComponent {
 
     runInInjectionContext(this.environmentInjector, () => {
       this.users = this.userHttpService.toSignalUsers();
-   
+
     });
   }
-} 
+}

@@ -1,0 +1,133 @@
+<div id="createModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 990px;">
+        <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <i class="fa fa-plus"></i> Registar Fornecedor
+            </h4>
+            <button type="button" class="close" (click)="this.resetForm()" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="this.supplierForm">
+                  <div class="row">
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="name"><i class="fa fa-edit"></i> Nome</label
+                          ><input
+                            id="name"
+                            placeholder="criar-utilizadoer"
+                            type="text"
+                            formControlName="name"
+                            [ngClass]="{'is-invalid':this.control['name'].invalid && isSubmitted, 'is-valid': !this.control['name'].invalid && isSubmitted}"
+                            class="form-control"
+                          />
+                          <div *ngIf="this.control['name'].invalid && isSubmitted">
+
+                              <div >
+                                <span class="text-danger">* Nome é obrigatorio</span>
+                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                          <div class="input-group">
+                            <input
+                              id="email"
+                              placeholder="john.doe@cobraqui.com"
+                              type="email"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="email"
+                              [ngClass]="{'is-invalid':this.control['email'].invalid && isSubmitted, 'is-valid': !this.control['email'].invalid && isSubmitted}"
+                            />
+
+                          </div>
+                          <div *ngIf="this.control['email'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">* Email  é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="phone"><i class="fa fa-phone"></i> Contacto</label>
+                          <div class="input-group">
+                            <input
+                              id="phone"
+                              [ngClass]="{'is-invalid':this.control['phoneNumber'].invalid && isSubmitted, 'is-valid': !this.control['phoneNumber'].invalid && isSubmitted}"
+
+                              placeholder="+258 999 999 999"
+                              type="text"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="phoneNumber"
+                            />
+                          </div>
+                          <div *ngIf="this.control['phoneNumber'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">* O Telefone  é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="address"><i class="fa fa-user"></i> Endereco</label>
+                          <div class="input-group">
+                            <input name="cars" id="cars"  class="form-control ng-untouched ng-pristine ng-valid"     formControlName="address"
+                            [ngClass]="{'is-invalid':this.control['address'].invalid && isSubmitted, 'is-valid': !this.control['address'].invalid && isSubmitted}"
+                            >
+
+                          </div>
+                          <div *ngIf="this.control['address'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">*O Endereco  é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+
+
+                    </div>
+              </form>
+
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-danger btn-sm btn-flat text-white"
+              type="button"
+            >
+              <i class="fa fa-close"></i> Fechar</button
+            ><button class="btn btn-secondary btn-sm btn-flat mr-1" (click)="this.validateForm()" type="button">
+              <i class="fa fa-check"></i> Validar</button
+            >
+            @if (!this.supplierValue().id) {
+                <button (click)="this.createSupplier()" class="btn btn-success btn-sm btn-flat mr-1" type="button">
+                    <i class="fa fa-save"></i> Registar
+                  </button>
+            }
+            @if (this.supplierValue().id) {
+                <button (click)="this.updateSupplier()" class="btn btn-success btn-sm btn-flat mr-1" type="button">
+                    <i class="fa fa-save"></i> Actualizar
+                  </button>
+            }
+
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--bindings={
+      "ng-reflect-ng-if": "false"
+    }-->
+  </div>

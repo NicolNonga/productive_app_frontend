@@ -1,0 +1,92 @@
+<div id="createModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 990px;">
+        <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <i class="fa fa-plus"></i> Registar tipo de Veiculo
+            </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="this.vehicleTypeForm">
+                  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="Name"><i class="fa fa-edit"></i> tipo</label
+                          ><input
+                            id="name"
+                            placeholder="type de peças"
+                            type="text"
+                            formControlName="type"
+                            [ngClass]="{'is-invalid':this.control['type'].invalid && isSubmitted, 'is-valid': !this.control['type'].invalid && isSubmitted}"
+                            class="form-control"
+                          />
+                          <div *ngIf="this.control['type'].invalid && isSubmitted">
+
+                              <div >
+                                <span class="text-danger">* Tipo é obrigatorio</span>
+                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="description"><i class="fa fa-envelope"></i> description</label>
+                          <div class="input-group">
+                            <input
+                              id="description"
+                              placeholder="breve Descrição"
+                              type="description"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="description"
+                              [ngClass]="{'is-invalid':this.control['description'].invalid && isSubmitted, 'is-valid': !this.control['description'].invalid && isSubmitted}"
+                            />
+
+                          </div>
+                          <div *ngIf="this.control['description'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">* Descrição  é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+
+
+
+                    </div>
+              </form>
+
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-danger btn-sm btn-flat text-white"
+              type="button"
+            >
+              <i class="fa fa-close"></i> Fechar</button
+            ><button class="btn btn-secondary btn-sm btn-flat mr-1" (click)="this.validateForm()" type="button">
+              <i class="fa fa-check"></i> Validar</button
+            >
+            @if (!this.vehiculeTypeValue().id) {
+                <button (click)="this.createVehicleType()"  class="btn btn-success btn-sm btn-flat mr-1" type="button">
+                    <i class="fa fa-save"></i> Registar
+                  </button>
+            }
+            @if (this.vehiculeTypeValue().id) {
+                <button (click)="this.updateVehicleType()"  class="btn btn-success btn-sm btn-flat mr-1" type="button">
+                    <i class="fa fa-save"></i> Actualizar
+                  </button>
+            }
+
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--bindings={
+      "ng-reflect-ng-if": "false"
+    }-->
+  </div>

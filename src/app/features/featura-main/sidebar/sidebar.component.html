@@ -5,12 +5,12 @@
   <!-- Brand Logo -->
   <a routerLink="/dashboard" class="brand-link bg-white">
 <!--     <img
-    src="assets/dist/img/cobra-aui.jpeg" 
+    src="assets/dist/img/cobra-aui.jpeg"
       alt="INVESTPR"
       class="brand-image img-circles elevation-3s"
       style="margin: -13px 0 0 -8px; max-height: 54px; width: 103px"
     /> -->
-  
+
     <span
       class="brand-textt font-weight-lightt"
       style="margin-left: 12px; font-weight: 600"
@@ -30,7 +30,7 @@
       <div class="info">
         <a
           href="javascript:void(0)"
-       
+
           ><span>{{this.currentuser.user.fullName}}</span></a
         >
       </div>
@@ -49,6 +49,37 @@
           <p>Dashboard</p>
         </a>
       </li>
+
+      <li class="nav-item" [class.menu-open]="menuOpen['veiculo']">
+        <a class="nav-link" (click)="toggleMenu('veiculo')">
+          <i class="fa fa-car nav-icon"></i>
+          <p>Veiculos<i class="right fa fa-angle-left"></i></p>
+        </a>
+        <ul class="nav nav-treeview nav-fourview">
+          <li class="nav-item">
+            <a routerLink="/vehicle/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+              <i class="fa fa-car nav-icon"></i> Listagem
+            </a>
+          </li>
+
+
+        </ul>
+      </li>
+      <li class="nav-item" [class.menu-open]="menuOpen['part']">
+        <a class="nav-link" (click)="toggleMenu('part')">
+          <i class="fa fa-cog nav-icon"></i>
+          <p>Peças<i class="right fa fa-angle-left"></i></p>
+        </a>
+        <ul class="nav nav-treeview nav-fourview">
+          <li class="nav-item">
+            <a routerLink="/part/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+              <i class="fa fa-car nav-icon"></i> Listagem
+            </a>
+          </li>
+
+
+        </ul>
+      </li>
       <!--
        <li class="nav-item">
           <a routerLink="/logs" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link"
@@ -56,7 +87,7 @@
             <p>Logs Aplicação</p>
           </a>
         </li>
-      --> 
+      -->
 
         <li class="nav-item has-treeview" [class.menu-open]="menuOpen['configuracoes']">
           <a class="nav-link" (click)="toggleMenu('configuracoes')">
@@ -81,72 +112,59 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a routerLink="/segmentacao-cliente" routerLinkActive="active" class="nav-link">
-                    <i class="fa fa-th-list nav-icon"></i> Níveis Segmentação
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item has-treeview" [class.menu-open]="menuOpen['proForma']">
-              <a class="nav-link" (click)="toggleMenu('proForma')">
-                <i class="fa fa-money nav-icon"></i>
-                <p>Pró-Forma<i class="right fa fa-angle-left"></i></p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a routerLink="/orcamento" routerLinkActive="active" class="nav-link">
-                    <i class="fa fa-plus nav-icon"></i> Registar Pró-Forma
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a routerLink="/listarOrcamento" routerLinkActive="active" class="nav-link">
-                    <i class="fa fa-file-archive-o nav-icon"></i> Listar Pró-Forma
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item has-treeview" [class.menu-open]="menuOpen['encomendas']">
-              <a class="nav-link" (click)="toggleMenu('encomendas')">
-                <i class="fa fa-gift nav-icon"></i>
-                <p>Encomendas<i class="right fa fa-angle-left"></i></p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item has-treeview" [class.menu-open]="menuOpen['registrar']">
-                  <a class="nav-link" (click)="toggleMenu('registrar')">
-                    <i class="fa fa-unlock-alt nav-icon"></i>
-                    <p>Registrar<i class="right fa fa-angle-left"></i></p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a routerLink="/crm/encomenda/registar/normal" routerLinkActive="active" class="nav-link">
-                        <i class="fa fa-users nav-icon"></i> Encomenda Normal
-                      </a>
-                    </li>
-                    <!-- Uncomment or add more items as needed -->
-                    <!-- <li class="nav-item">
-                      <a routerLink="/crm/encomenda/registar/oferta" routerLinkActive="active" class="nav-link">
-                        <i class="fa fa-lock nav-icon"></i> Encomenda de Oferta
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a routerLink="/crm/encomenda/campanha-promocional" routerLinkActive="active" class="nav-link">
-                        <i class="fa fa-gift nav-icon"></i> Encomenda de Campanha
-                      </a>
-                    </li> -->
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a routerLink="/crm/encomenda/listar" routerLinkActive="active" class="nav-link">
-                    <i class="fa fa-file-archive-o nav-icon"></i> Listar Encomendas
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
- 
+                    <a routerLink="/acess_control/list-roles" routerLinkActive="active" class="nav-link">
+                      <i class="fa fa-cc nav-icon"></i> Perfil
+                    </a>
+                  </li>
 
-      
+              </ul>
+            </li>
+
+          </ul>
+
+          <!-- Configuration -->
+          <ul class="nav nav-treeview">
+            <li class="nav-item" [class.menu-open]="menuOpen['geral']">
+              <a class="nav-link" (click)="toggleMenu('geral')">
+                <i class="fa fa-key nav-icon"></i>
+                <p>Geral<i class="right fa fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview nav-fourview">
+                <li class="nav-item">
+                  <a routerLink="/config/list-type_part" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+                    <i class="fa fa-users nav-icon"></i> Tipo de Peças
+                  </a>
+                </li>
+
+
+              </ul>
+              <ul class="nav nav-treeview nav-fourview">
+                <li class="nav-item">
+                  <a routerLink="/config/list-vehicle-type" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+                    <i class="fa fa-users nav-icon"></i> Tipo de Veículos
+                  </a>
+                </li>
+
+
+              </ul>
+              <ul class="nav nav-treeview nav-fourview">
+                <li class="nav-item">
+                  <a routerLink="/config/suppliers" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+                    <i class="fa fa-users nav-icon"></i> Fornecedores
+                  </a>
+                </li>
+
+
+              </ul>
+            </li>
+
+
+          </ul>
+
+        </li>
+
+
+
       </ul>
     </nav>
   </div>

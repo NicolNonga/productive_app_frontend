@@ -31,4 +31,11 @@ export class PermissionComponent {
          this.realoadPermissions()
     })
   }
+
+  public enablePermission(permission_id: number): void {
+     this.permissionHttpService.enablePermission(permission_id).subscribe((response)=> {
+        this.realoadPermissions()
+     })
+
+  }
 }

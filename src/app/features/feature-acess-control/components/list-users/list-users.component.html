@@ -281,7 +281,7 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.phoneNumber }}</td>
                         <td>{{ user.role ?  user.role.name : "sem perfil"}}</td>
-                        <td>{{ user.createdAt| date : "MM-DD-YYYY"}}</td>
+                        <td>{{ user.createdAt| date : "M/d/yy"}}</td>
                         <td>
                           <div class="btn-group">
                             <button
@@ -354,4 +354,3 @@
     <app-create-or-edit-users (userCreated)="this.realoadUser()"></app-create-or-edit-users>
     <!-- TABLE SECTION-->
   </div>
-

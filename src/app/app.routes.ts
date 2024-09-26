@@ -60,8 +60,71 @@ export const routes: Routes = [
     }
   },
   loadComponent: () => import("./features/feature-acess-control/components/permission/permission.component").then(comp=>comp.PermissionComponent)
-}
+},
+{
+   path:'acess_control/list-roles',
+   data:{
+    title: "Listagem dos Perfil",
+    layout: {
+      customLayout: true,
+      layoutNavigationTop: true
+    }
+  },
+  loadComponent: ()=> import('./features/feature-acess-control/components/list-roles/list-roles.component').then((comp)=>comp.ListRolesComponent)
+},
+{
+    path:'config/list-type_part',
+    data:{
+     title: "Listagem do Tipo de Peças",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/feature-configuration/components/list-type-parts/list-type-parts.component').then((comp)=>comp.ListTypePartsComponent)
+ },
+ {
+    path:'config/list-vehicle-type',
+    data:{
+     title: "Listagem do Tipo Ve",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/feature-configuration/components/list-type-parts/list-type-parts.component').then((comp)=>comp.ListTypePartsComponent)
+ },
+ {
+    path:'config/suppliers',
+    data:{
+     title: "Listagem do Tipo Ve",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/feature-configuration/components/list-supplier/list-supplier.component').then((comp)=>comp.ListSupplierComponent)
+ },
+ {
+    path:'vehicle/list',
+    data:{
+     title: "Listagem dos Veiculos",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/feature-vehicles/components/list-vehicle/list-vehicle.component').then((comp)=>comp.ListVehicleComponent)
+ },
+ {
+    path:'part/list',
+    data:{
+     title: "Listagem das Peças",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/feature-parts/components/list-parts/list-parts.component').then((comp)=>comp.ListPartsComponent)
+ }
 ]
-
-
- 
