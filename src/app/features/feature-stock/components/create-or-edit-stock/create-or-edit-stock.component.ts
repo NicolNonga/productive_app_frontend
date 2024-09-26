@@ -1,4 +1,4 @@
-import { Component, inject, signal, Signal } from '@angular/core';
+import { Component, EventEmitter, inject, Output, signal, Signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StockForm } from '../../model/stock.model';
 import { PartHttpService } from '../../../feature-parts/service/part-http.service';
@@ -18,12 +18,14 @@ export class CreateOrEditStockComponent {
     public stockForm!:FormGroup
     public partHttpService= inject(PartHttpService)
     public supplierService = inject(SupplierHttpService)
+    @Output() StockCreatedOrEdited = new EventEmitter<any>()
     public parts: Signal<Part [] | undefined> = signal<Part []>([])
     public suppliers: Signal<Supplier [] | undefined>= signal<Supplier []>([])
 
      constructor(){
         this.suppliers = this.supplierService.toSignaSupplierAll()
         this.parts = this.partHttpService.toSignalPartAll()
+        this.createForm()
      }
 
     createForm(){
@@ -31,6 +33,18 @@ export class CreateOrEditStockComponent {
             partId : new FormControl(null, Validators.required),
             supplieId : new FormControl(null,Validators.required),
             quantity: new FormControl(null, Validators.required)
+        })
+    }
+
+    get control(){
+      return this.stockForm.controls
+    }
+
+    createStock(){
+        this.isSubmitted = true
+        if(this.stockForm.invalid) return
+        this.partHttpService.Post('stock', this.stockForm.value).subscribe((res)=>{
+            console.log("sucesso")
         })
     }
 }

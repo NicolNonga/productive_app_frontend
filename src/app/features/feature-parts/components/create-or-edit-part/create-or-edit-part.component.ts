@@ -40,7 +40,7 @@ export class CreateOrEditPartComponent {
      }
 
      onFileSelected(event : Event){
-        console.log(event)
+
         const inputFile = event.target as HTMLInputElement
 
         if(inputFile.files ){
