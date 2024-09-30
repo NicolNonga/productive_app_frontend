@@ -1,0 +1,139 @@
+<div class="modal fade bd-example-modal-xl" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" style="max-width: 1690px;">
+      <div class="modal-content">
+        <form class="ng-untouched ng-pristine ng-valid">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <i class="fa fa-plus"></i> Registar Peças
+            </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form >
+                  <div class="row">
+                    <div class="col-md-9 col-xs-12 col-sm-12">
+                        <div class="table-responsive ng-star-inserte">
+                            <table class="table text-center table-stripedd table-bordered ng-star-inserted">
+
+                                 <tbody>
+                                    <tr >
+                                        <th >Forma Pagamento</th>
+                                        <th >V. Entrada</th>
+                                        <th >Quantia a Pagar</th>
+                                        <th >Referência Bancaria</th>
+                                        <th >Data Pagamento</th>
+                                        <th ><i  class="fa fa-check"></i>
+                                        </th>
+                                    </tr>
+                                    <tr >
+                                        <td  width="231">
+                                        <select  name="forma_pagamento_id" class="form-control ng-valid ng-dirty ng-touched"><option  selected="" value="null">F. Pagamento</option>
+
+                                        </select>
+                                    </td>
+                                    <td >
+                                        <input  type="number" name="valor_recebido" placeholder="Valor Entrada" class="form-control ng-valid ng-touched ng-dirty">
+                                    </td>
+
+                                    <td >
+                                        <input  type="number" name="total_pago" placeholder="Quantia a
+                                        pagar"  class="form-control">
+                                    </td>
+                                    <td >
+                                        <input  type="text" name="referencia" placeholder="Referência bancaria" class="form-control ng-touched ng-dirty" disabled="">
+                                    </td>
+                                    <td >
+                                        <input  type="date" name="data_pagamento" class="form-control ng-touched ng-dirty" disabled=""></td>
+                                        <td >
+                                            <button  type="button" title="Adicionar Item" class="btn btn-success"><i  class="fa fa-plus"></i> Adicionar</button>
+                                        </td>
+                                        </tr>
+                                        <tr >
+                                            <td  colspan="9" class="text-left">
+                                                <p  class="lead"><b >Métodos de Pagamento</b></p>
+                                        </td>
+                                        </tr>
+                                        <tr  style="background: #d4d4d4;">
+                                            <th >#</th>
+                                            <th >Meio Pagamento</th>
+                                            <th >V. Entrada</th>
+                                            <th >Referência Bancaria</th>
+                                            <th >Data Pagamento</th>
+                                            <th >Excluir Item</th>
+                                        </tr>
+
+                                        <tr  class="ng-star-inserted">
+                                            <td >1</td>
+                                            <td >Pagamento Por Referência</td>
+                                            <td >500,00</td>
+                                            <td >490394</td>
+                                            <td >2024-09-29</td>
+                                            <td >
+                                                <div  class="btn-group"><button  type="button" id="remove" class="btn btn-info">Exluir</button></div>
+                                            </td>
+                                        </tr>
+
+                                 </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 col-xs-12 col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr >
+                                        <th  colspan="2">Factura/Recibo </th>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-right">Data de emissão ___/___/____</td>
+                                    </tr>
+                                    <tr >
+                                        <th  style="width: 50%;">Subtotal:</th>
+                                        <td  class="text-right">400,00</td>
+                                    </tr>
+                                    <tr >
+                                        <th>Imposto</th>
+                                        <td  class="text-right">0,00</td>
+                                    </tr>
+                                    <tr >
+                                        <th>Total:</th>
+                                        <td  class="text-right">400,00</td>
+                                    </tr>
+                                    <tr >
+                                        <th >Valor em abero:</th>
+                                        <td  class="text-right">400,00</td>
+                                    </tr>
+                                    <tr  class="ng-star-inserted">
+                                        <th  class="ng-star-inserted">Valor Entrada:</th><!---->
+                                        <td  class="text-right ng-star-inserted">900,00</td><!---->
+                                    </tr>
+
+                                    <tr  class="ng-star-inserted">
+                                        <th  class="ng-star-inserted">Troco:</th><!---->
+                                        <td  class="text-right ng-star-inserted">500,00</td><!---->
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                      </div>
+
+
+
+
+
+              </form>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <!--bindings={
+      "ng-reflect-ng-if": "false"
+    }-->
+  </div>

@@ -1,6 +1,6 @@
 import { Injectable, Signal, signal } from "@angular/core";
 import { HttpHandleService } from "../../../core/http/http-handle.service";
-import { ResponseSupplier, Supplier } from "../model/supplier.model";
+import { ResponseSupplier, ResponseSupplierDropDown, Supplier } from "../model/supplier.model";
 import { finalize } from "rxjs";
 import { toSignal } from "@angular/core/rxjs-interop";
 
@@ -17,10 +17,10 @@ export class SupplierHttpService extends HttpHandleService {
 
     )
 }
-public toSignaSupplierAll(): Signal<Supplier [] |  undefined>{
+public toSignaSupplierAll(): Signal<ResponseSupplierDropDown>{
     return toSignal(
-        this.GetAll<Supplier []>('supplier/dropdown').pipe(finalize(()=>this.isComplete.set(true))),
-        {initialValue: []}
+        this.GetAll<ResponseSupplierDropDown>('supplier/dropdown').pipe(finalize(()=>this.isComplete.set(true))),
+        {initialValue: {} as ResponseSupplierDropDown}
 
     )
 }

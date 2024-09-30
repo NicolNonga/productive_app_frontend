@@ -1,1 +1,109 @@
-<p>create-or-edit-stock works!</p>
+<div id="createStock" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 990px;">
+        <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <i class="fa fa-plus"></i> Registar Stock
+            </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="this.stockForm">
+                  <div class="row">
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="partId"><i class="fa fa-user"></i>Peca</label>
+                          <div class="input-group">
+                            <select name="peca" id="peca"  class="form-control ng-untouched ng-pristine ng-valid"     formControlName="partId"
+                            [ngClass]="{'is-invalid':this.control['partId'].invalid && isSubmitted, 'is-valid': !this.control['partId'].invalid && isSubmitted}"
+                            >
+                              <option value=""></option>
+                              <option [value]="part.id" *ngFor="let part of this.parts()" >
+                                {{part.nome}}
+                              </option>
+
+                            </select>
+                          </div>
+                          <div *ngIf="this.control['partId'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">*O Peça é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="partId"><i class="fa fa-user"></i>Fornecedor</label>
+                          <div class="input-group">
+                            <select name="peca" id="peca"  class="form-control ng-untouched ng-pristine ng-valid"     formControlName="supplieId"
+                            [ngClass]="{'is-invalid':this.control['supplieId'].invalid && isSubmitted, 'is-valid': !this.control['supplieId'].invalid && isSubmitted}"
+                            >
+                              <option value=""></option>
+                              <option [value]="item.id" *ngFor="let item of this.suppliers().data" >
+                                {{item.name}}
+                              </option>
+
+                            </select>
+                          </div>
+                          <div *ngIf="this.control['supplieId'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">*O Fornecedor é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="phone"><i class="fa fa-phone"></i>Quantidade </label>
+                          <div class="input-group">
+                            <input
+                              id="phone"
+                              [ngClass]="{'is-invalid':this.control['quantity'].invalid && isSubmitted, 'is-valid': !this.control['quantity'].invalid && isSubmitted}"
+
+                              placeholder="quantidade"
+                              type="text"
+                              class="form-control ng-untouched ng-pristine ng-valid"
+                              formControlName="quantity"
+                            />
+                          </div>
+                          <div *ngIf="this.control['quantity'].invalid && isSubmitted">
+
+                            <div >
+                              <span class="text-danger">* A quantidade  é obrigatorio</span>
+                            </div>
+
+                        </div>
+                        </div>
+                      </div>
+
+                    </div>
+              </form>
+
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-danger btn-sm btn-flat text-white"
+              type="button"
+            >
+              <i class="fa fa-close"></i> Fechar</button
+            >
+            <button (click)="this.createStock()" class="btn btn-success btn-sm btn-flat mr-1" type="button">
+              <i class="fa fa-save"></i> Registar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--bindings={
+      "ng-reflect-ng-if": "false"
+    }-->
+  </div>

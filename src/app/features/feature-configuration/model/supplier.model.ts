@@ -19,3 +19,11 @@ export interface SupplierForm {
   address: FormControl<string | null>
   phoneNumber : FormControl<String | null>
 }
+
+export interface SupplierDropDown{
+       name: string
+       id : number
+}
+export interface ResponseSupplierDropDown{
+    data : SupplierDropDown []
+}

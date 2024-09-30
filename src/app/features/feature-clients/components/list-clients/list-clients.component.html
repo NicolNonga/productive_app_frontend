@@ -5,14 +5,14 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <h1 class="m-0 text-dark">
-                <i class="fa icon icon-roles"></i> Stock
+                <i class="fa icon icon-roles"></i> Clientes
               </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Stock</a></li>
+                <li class="breadcrumb-item"><a href="#">Clientes</a></li>
                 <li class="breadcrumb-item active">Listagem</li>
-                <li class="breadcrumb-item active">Stock</li>
+                <li class="breadcrumb-item active">Clientes</li>
               </ol>
             </div>
           </div>
@@ -29,7 +29,7 @@
               style="box-shadow: 0 0 0rem rgba(0, 0, 0, 0.5)"
             >
               <div class="modal-header">
-                <h4 class="modal-title">TABELA DOS STOCK</h4>
+                <h4 class="modal-title">TABELA DOS CLIENTES</h4>
 
                 <div class="card-tools">
                   <div class="btn-group">
@@ -37,9 +37,9 @@
                     type="button"
                     class="btn btn-warning btn-flat btn-cadastrar"
                     data-toggle="modal"
-                    data-target="#createStock"
+                    data-target="#createModal"
                   >
-                    <i class="fa fa-roles"></i>Novo Stock
+                    <i class="fa fa-roles"></i>Novo Cliente
                   </button>
                     <button
                       class="btn btn-secondary dropdown-toggle dropdown-icon btn-flat"
@@ -60,7 +60,7 @@
                       </a>
                     </div>
                   </div>
-                  <button (click)="this.reloadStock()" class="btn btn-secondary btn-flat" type="button">
+                  <button (click)="this.reloadClients()" class="btn btn-secondary btn-flat" type="button">
                     <i class="fa fa-refresh"></i>
                     Recarregar</button
                   >
@@ -70,24 +70,29 @@
               <!-- Modal body -->
               <div class="modal-body">
                 <div class="modal-body">
-                  <table class="table table-hover table-bordered text-center" *ngIf="this.stocks()">
+                  <table class="table table-hover table-bordered text-center" *ngIf="this.clients()">
                     <tbody>
                       <tr class="bg-secondary" >
                         <th>#</th>
-                        <th>Quantidade </th>
-                        <th>Fornecedor</th>
-                        <th>Peça</th>
-                        <th>Data de Criação</th>
+                        <th>Nome </th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Enderenço</th>
+
+                        <th>Operador</th>
+                        <th>Data de criação</th>
                         <th>Acção</th>
                       </tr>
-                      @for (stock of this.stocks().data; track stock.id; let index = $index) {
+                      @for (client of this.clients().data; track client.id; let index = $index) {
 
                       <tr >
                           <td>{{index + 1}}</td>
-                          <td class="bg-style">{{ stock.quantity }}</td>
-                          <td>{{ stock.supplier.name }}</td>
-                           <td>{{stock.part.nome}}</td>
-                          <td>{{stock.createdAt | date : "M/d/yy"}}</td>
+                          <td class="bg-style">{{ client.name }}</td>
+                          <td>{{ client.email }}</td>
+                           <td>{{client.phoneNumber}}</td>
+                           <td>{{client.address }}</td>
+                          <td>{{ client.user.fullName }}</td>
+                          <td>{{client.createdAt | date : "M/d/yy"}}</td>
                           <td>
                             <div class="btn-group">
                               <button
@@ -110,7 +115,13 @@
                                 role="menu"
                                 x-placement="bottom-start"
                               >
-
+                                <a
+                                  (click)="this.setClient(client)"
+                                  class="dropdown-item btn-sm"
+                                  href="javascript:void(0)"
+                                  data-toggle="modal"
+                                  data-target="#DetailModal"
+                                  ><i class="fa fa-edit"></i> Ver Detalhes </a
                                 >
 
 
@@ -147,4 +158,3 @@
         </div>
       </div>
 </div>
-<app-create-or-edit-stock (StockCreatedOrEdited)="this.reloadStock()"></app-create-or-edit-stock>

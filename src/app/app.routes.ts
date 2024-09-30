@@ -148,5 +148,28 @@ export const routes: Routes = [
      }
    },
    loadComponent: ()=> import('./features/feature-stock/components/list-moviment-stock/list-moviment-stock.component').then((comp)=>comp.ListMovimentStockComponent)
+ },
+
+ {
+    path:'clients/list',
+    data:{
+     title: "Listagem dos Clientes",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/feature-clients/components/list-clients/list-clients.component').then((comp)=>comp.ListClientsComponent)
+ },
+ {
+    path:'clients/payment',
+    data:{
+     title: "Listagem dos Clientes",
+     layout: {
+       customLayout: true,
+       layoutNavigationTop: true
+     }
+   },
+   loadComponent: ()=> import('./features/payments/components/list-payment/list-payment.component').then((comp)=>comp.ListPaymentComponent)
  }
 ]

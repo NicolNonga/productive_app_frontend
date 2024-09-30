@@ -27,6 +27,7 @@ export class DetailPartComponent {
             console.log(this.partValues())
            // this.partFileDownload = this.partHttpService.downloadImgPart(this.partValues().fileName)
             this.url = `http://localhost:3333/parts/download/file/${this.partValues().fileName}`
+            console.log(this.url)
         }
         this.partForm.patchValue({
             nome : this.partValues().nome,

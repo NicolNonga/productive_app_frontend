@@ -50,6 +50,28 @@
         </a>
       </li>
 
+      <li class="nav-item" [class.menu-open]="menuOpen['clients']">
+        <a class="nav-link" (click)="toggleMenu('clients')">
+          <i class="fa fa-users nav-icon"></i>
+          <p>Cliente<i class="right fa fa-angle-left"></i></p>
+        </a>
+        <ul class="nav nav-treeview nav-fourview">
+          <li class="nav-item">
+            <a routerLink="/clients/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+              <i class="fa fa-list nav-icon"></i> listagem dos clientes
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/clients/payment" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+              <i class="fa fa-list nav-icon"></i> listagem dos pagamento
+            </a>
+          </li>
+
+
+
+        </ul>
+      </li>
       <li class="nav-item" [class.menu-open]="menuOpen['veiculo']">
         <a class="nav-link" (click)="toggleMenu('veiculo')">
           <i class="fa fa-car nav-icon"></i>
@@ -101,6 +123,7 @@
 
         </ul>
       </li>
+
       <!--
        <li class="nav-item">
           <a routerLink="/logs" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link"

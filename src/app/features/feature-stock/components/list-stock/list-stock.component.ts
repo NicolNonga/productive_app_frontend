@@ -2,11 +2,12 @@ import { Component, EnvironmentInjector, inject, runInInjectionContext, Signal }
 import { ResponseStock } from '../../model/stock.model';
 import { StockHttpService } from '../../service/stock-http.service';
 import { CommonModule } from '@angular/common';
+import { CreateOrEditStockComponent } from '../create-or-edit-stock/create-or-edit-stock.component';
 
 @Component({
   selector: 'app-list-stock',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CreateOrEditStockComponent],
   templateUrl: './list-stock.component.html',
   styleUrl: './list-stock.component.css'
 })
